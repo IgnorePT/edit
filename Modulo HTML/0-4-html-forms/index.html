@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Forms</title>
-</head>
-<body>
-    <!-- O truque para um bom formulário, é a organização, começa aqui o teu. -->
-    <!-- O exemplo é o ficheiro sample -->
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic Forms</title>
+    </head>
+
+    <body>
+        <!-- O truque para um bom formulário, é a organização, começa aqui o teu. -->
+        <form method="post">
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" name="first-name" id="first-name">
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" name="last-name" id="last-name">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="age">
+            </div>
+
+            <div class="form-group">
+                <label for="date-of-birth">Date of birth:</label>
+                <input type="date" name="date-of-birth" id="date-of-birth">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Country:</label>
+                <select name="address">
+                    <option value="Argentina">Argentina</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Portugal">Brasil</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Comments:</label>
+                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Fill your comments"></textarea>
+            </div>
+        </form>
+        <!-- O exemplo é o ficheiro sample -->
+    </body>
+
 </html>
