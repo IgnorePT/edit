@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calendar__container">
+        <div class="calendar__container__header">
+            <button class="btn btn-small">Today</button>
+        </div>
+        <div class="calendar__wrapper">
+           <!-- Aqui dentro. -->
+           <table>
+               <thead>
+                   <tr>
+                       <th>Mo</th>
+                       <th>Tu</th>
+                       <th>Wd</th>
+                       <th>Th</th>
+                       <th>Fr</th>
+                       <th>Sa</th>
+                       <th>Sd</th>
+                   </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+               </tbody>
+           </table>
+        </div>
+    </div>
+    <script>
+
+        let date = new Date();
+
+        let today = date.getDate(),
+            year = date.getFullYear();
+
+            month = date.getMonth() + 1;
+        
+        let dayInMonths = new Date(year, month, 0).getDate();
+
+        let days = document.querySelectorAll('td');
+
+        days.forEach((day, index) => {
+            day.innerHTML = (index + 1 <= dayInMonths) ? index + 1 : ''; 
+            day.innerHTML == today ? day.classList.add('active') : null
+        });
+
+    </script>
+</body>
+</html>
