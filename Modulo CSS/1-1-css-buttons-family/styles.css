@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.buttons__wrapper {
+    width: 500px;
+    margin: 16px auto;
+}
+
+.d-flex {
+    display: flex;
+    gap: 12px;
+}
+
+
+/* My Styles */
+.btn{
+    padding: 8px 12px;
+    background: gainsboro;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.btn__small{
+    padding: 8px 8px;
+}
+
+.btn__outlined{
+    border: 1px solid gainsboro;
+    background: transparent;
+    color: gainsboro;
+}
+
+/* BG Colors */
+.primary{
+    background: #1652f0;
+   
+}
+.success{
+    background: #14cf3c;
+}
+
+.danger{
+    background: #cf1414;
+}
+
+.warning{
+    background: #dbac2b;
+}
+
+.btn__outlined.btn__outlined-primary{
+    border-color: #1652f0;
+    color: #1652f0;
+}
+
+.btn__outlined.btn__outlined-success{
+    border-color: #14cf3c;
+    color: #14cf3c;
+}
+
+.btn__outlined.btn__outlined-danger{
+    border-color: #cf1414;
+    color: #cf1414;
+}
+
+.btn__outlined.btn__outlined-warning{
+    border-color: #dbac2b;
+    color: #dbac2b;
+}
+
+
+
