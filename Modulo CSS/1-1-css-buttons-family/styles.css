@@ -21,9 +21,19 @@ html, body {
 
 
 /* My Styles */
+
+:root {
+    --default: gainsboro;
+    --primary: #1652f0;
+    --success: #14cf3c;
+    --danger: #cf1414;
+    --warning: #dbac2b;
+  }
+
+
 .btn{
     padding: 8px 12px;
-    background: gainsboro;
+    background: var(--default);
     border: 0;
     border-radius: 4px;
     color: #ffffff;
@@ -34,46 +44,46 @@ html, body {
 }
 
 .btn__outlined{
-    border: 1px solid gainsboro;
+    border: 1px solid var(--default);
     background: transparent;
-    color: gainsboro;
+    color: var(--default);
 }
 
 /* BG Colors */
 .primary{
-    background: #1652f0;
+    background: var(--primary);
    
 }
 .success{
-    background: #14cf3c;
+    background: var(--success);
 }
 
 .danger{
-    background: #cf1414;
+    background: var(--danger);
 }
 
 .warning{
-    background: #dbac2b;
+    background: var(--warning);
 }
 
 .btn__outlined.btn__outlined-primary{
-    border-color: #1652f0;
-    color: #1652f0;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .btn__outlined.btn__outlined-success{
-    border-color: #14cf3c;
-    color: #14cf3c;
+    border-color: var(--success);
+    color: var(--success);
 }
 
 .btn__outlined.btn__outlined-danger{
-    border-color: #cf1414;
-    color: #cf1414;
+    border-color: var(--danger);
+    color: var(--danger);
 }
 
 .btn__outlined.btn__outlined-warning{
-    border-color: #dbac2b;
-    color: #dbac2b;
+    border-color: var(--warning);
+    color: var(--warning);
 }
 
 
