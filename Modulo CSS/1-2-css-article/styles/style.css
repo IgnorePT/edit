@@ -131,6 +131,6 @@ article a .article_information .article_title{
     font-size: 1.8rem;
 }
 
-article a .article_information p{
-    font-size: 1.6rem;
+article a .article_information .article_description{
+    font-size: 1.5rem;
 }
