@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+
+/*General */
+html,
+body {
+	font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Vollkorn", serif;
+}
+
+header,
+main {
+	max-width: 54%;
+	margin: 5rem auto;
+}
+
+.italic {
+	font-style: italic;
+}
+
+/* Header */
+.main_nav {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.main_nav a {
+	display: inline-block;
+	align-items: center;
+	padding: 2rem;
+	font-size: 1.6rem;
+	color: grey;
+	text-decoration: none;
+    border: 0;
+}
+
+.main_nav a.active,
+.main_nav a:hover {
+	background-color: #000;
+	color: #fff;
+}
+
+/* Main Article */
+
+.main_article{
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+.main_article .title {
+	font-size: 5rem;
+	text-align: center;
+}
+
+.main_article .subtitle {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.main_article img {
+	width: 100%;
+}
+
+.main_article h3 {
+	font-size: 3rem;
+}
+
+.main_article p {
+	font-size: inherit;
+}
+
+.main_article a {
+    font-size: inherit;
+	text-decoration: underline;
+    color: lightgray;
+}
+
+.highlight {
+	background-color: #000;
+	color: #fff;
+	padding: 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+}
+
+.highlight em {
+	font-style: normal;
+	color: yellow;
+}
+
+/* Related Articles */
+.related-articles h3 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.related-articles .articles_list{
+    padding: 1.6rem;
+}
+
+.related-articles article .thum {
+    font-size: 3rem;
+}
+
+article{
+    padding: 1.2rem 0.8rem;
+    border-bottom: 1px solid lightgray;
+}
+
+article a{
+    color: #000;
+    text-decoration: none;
+}
+
+article a .article_thumnail {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+
+article a .article_information {
+    display: inline-block;
+    width: 79%;
+    
+}
+
+article a .article_information .article_title{
+    font-size: 1.8rem;
+}
+
+article a .article_information p{
+    font-size: 1.6rem;
+}
