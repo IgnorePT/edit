@@ -42,7 +42,6 @@ pre {
 
 /* Coloca o teu CSS a partir daqui */
 .ball-0 {
-    position: absolute;
     right: 0;
 }
 
@@ -51,17 +50,14 @@ pre {
 }
 
 .ball-2 {
-    position: absolute;
     left: 40%; /*batota*/
 }
 
 .ball-3 {
-    position: absolute;
     left: 80px;
 }
 
 .ball-4 {
-    position: absolute;
     right: 120px;
 }
 
@@ -70,13 +66,11 @@ pre {
 }
 
 .ball-6 {
-    position: absolute;
     top: 160px;
     left: 120px;
 }
 
 .ball-7 {
-    position: absolutes;
     bottom: 120px;
     right: 120px;
 }
@@ -86,7 +80,6 @@ pre {
 }
 
 .ball-9 {
-    position: absolute;
     top: 80px;
     left: 120px;
 }
