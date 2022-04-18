@@ -116,6 +116,8 @@ body {
     font-size: 1.8rem;
     text-transform: uppercase;
     font-weight: 500;
+    top: 50%
+    transform
     margin-top: 1.6rem;
     margin-bottom: 3.2rem;
     transition: all 0.4s;
@@ -140,12 +142,12 @@ body {
 }
 
 
-@keyframes cris-animation{
+/* @keyframes cris-animation{
     0% { transform: rotate(0deg)}
     25% { transform: rotate(10deg)}
     75% { transform: rotate(-10deg)}
     100% { transform: rotate(0deg)}
-}
+} */
     
 
 
