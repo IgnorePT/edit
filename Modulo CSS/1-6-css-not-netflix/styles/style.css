@@ -1,4 +1,235 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
 /* font para utilizar */
-font-family: 'Lato', sans-serif;
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: #141414;
+	color: #ffffff;
+	display: flex;
+	font-family: "Lato", sans-serif;
+	border: 1px solid gray;
+}
+
+/* Side Bar */
+.sticky-navigation {
+	position: sticky;
+	width: clamp(250px, 100%, 20%);
+	top: 0px;
+	float: left;
+	height: fit-content;
+}
+
+.logo_wrapper .logo {
+	font-size: 4rem;
+	min-height: 8rem;
+	color: red;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 2rem 2.5rem;
+	border-bottom: 1px solid gray;
+	margin: 0;
+}
+
+.secondary-navigation > ul > li {
+	position: relative;
+}
+
+.secondary-navigation > ul > li:before {
+	content: "";
+	background-color: red;
+	width: 100%;
+	height: 6rem;
+	display: block;
+	position: absolute;
+	transform: translateX(-101%);
+	transition: all 0.4s ease-in-out;
+	z-index: -1;
+}
+
+.secondary-navigation > ul > li:hover:before {
+	transform: translateX(0);
+}
+
+.secondary-navigation > ul > li:not(:last-child) {
+	border-bottom: 1px solid gray;
+}
+
+.secondary-navigation > ul > li > a {
+	padding: 2rem;
+	display: block;
+	color: #ffffff;
+	font-size: 2rem;
+	font-weight: 500;
+	text-decoration: none;
+	z-index: 1;
+}
+
+/* Main Content */
+.main-page {
+	width: clamp(250px, 100%, 80%);
+	float: left;
+	border: 1px solid gray;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	min-height: 8rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #141414;
+	border-bottom: 1px solid gray;
+	z-index: 10;
+}
+
+header .navigation .main-navigation a {
+	color: #ffffff;
+	font-size: 2rem;
+	padding: 2.5rem;
+	text-decoration: none;
+}
+
+header .navigation .main-navigation a:hover {
+	color: red;
+	border-bottom: 1px solid red;
+}
+
+header .actions .icon-action {
+	padding: 2rem 1.5rem;
+}
+
+/* Video Section */
+
+section {
+	margin-bottom: 5rem;
+}
+
+.video-preview {
+	position: relative;
+	margin-bottom: 2rem;
+}
+
+.video-preview .video {
+	width: 100%;
+}
+
+.video-preview .show-info {
+	position: absolute;
+	bottom: 10%;
+	left: 2rem;
+	max-width: 50rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.video-preview .show-info .show-title {
+	font-weight: bold;
+	font-size: 8rem;
+	text-transform: uppercase;
+	letter-spacing: 1rem;
+}
+
+.video-preview .show-info .actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.video-preview .show-info .actions .action-btn {
+	color: #ffffff;
+	padding: 1.5rem 3rem;
+	background-color: rgba(239, 239, 239, 0.3);
+	border: none;
+	transition: all 0.3s ease-in-out;
+	border-radius: 1rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.video-preview .show-info .actions .action-btn:hover {
+	color: #141414;
+	padding: 1.5rem 3rem;
+	background-color: rgba(239, 239, 239, 1);
+}
+
+.video-preview .show-info .actions .action-btn.play {
+	color: #141414;
+	background-color: rgba(239, 239, 239, 1);
+}
+
+/* Shows Section */
+.shows {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.shows .section-title {
+	display: flex;
+	font-size: 2rem;
+	align-items: center;
+	padding: 2rem;
+}
+
+.shows .section-title::after {
+	content: url(../assets/arrow-right.png);
+    width: 20px;
+    height: 22px;
+}
+
+/* Shows Slider */
+.shows-slider {
+	display: flex;
+	width: 100%;
+	flex-wrap: nowrap;
+	overflow: auto;
+	gap: 2rem;
+}
+
+.shows-slider::-webkit-scrollbar {
+	display: none;
+}
+
+.shows-slider {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.shows-slider a {
+	display: block;
+    transition: all 0.4s;
+}
+
+.shows-slider a img {
+	aspect-ratio: 16/9;
+}
+
+/* Show's Slider Hover State */
+
+.shows-slider a:hover {
+    transform: scale(1.2);
+}
+
+/* Shows Big Cards */
+.shows.big {
+	display: flex;
+	gap: 2rem;
+}
+
+.shows.big .show {
+	flex-basis: 20%;
+}
+
+.shows.big .show a img {
+	width: 100%;
+}
