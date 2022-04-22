@@ -1,0 +1,118 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #f69898;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 990px;
+    margin: 0 auto;
+}
+
+.container {
+    width: calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    border: 1px solid #d38080;
+    margin: 4px;
+    flex-direction: column;
+}
+
+.box {
+    width: 120px;
+    height: 120px;
+    background: beige;
+}
+
+.mini-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.hole {
+    width: 30px;
+    height: 30px;
+    background: beige;
+    border-radius: 100%;
+    margin: 8px;
+}
+
+/* Mine Code */
+/* Animations */
+@keyframes upDown {
+	0%, 100% {
+		transform: rotateX(55deg) rotateZ(45deg) translate(40px, 40px);
+        box-shadow: 3px 3px 6px rgb(0 0 0 / 19%), 0 10px 10px rgb(0 0 0 / 20%);
+
+	}
+	50% {
+		transform: rotateX(55deg) rotateZ(45deg) translate(3px, 3px);
+        box-shadow: 40px 40px 20px rgb(0 0 0 / 10%), 0 10px 10px rgb(0 0 0 / 5%);
+
+	}
+}
+
+@keyframes skewAnimation {
+    0%, 100% {
+        transform: skew(0deg, 0deg);
+    }
+    50% {
+        transform: skew(15deg, 15deg);
+    }
+}
+
+@keyframes rotateSquare {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    75%, 100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+/* BOX 1 */
+.box.perspective-square{
+    border-radius: 25px;
+    animation: upDown 5s infinite;
+}
+
+/* BOX 2 */
+.box.z-squares{
+    box-shadow: 5px 5px 11px rgb(0 0 0 / 19%), 0 10px 10px rgb(0 0 0 / 20%);
+    animation: skewAnimation 5s infinite;
+}
+
+/* BOX 3 */
+.box.rotate-square{
+    animation: rotateSquare 2.4s ease-in-out infinite;
+}
+
+/* Holes - 1 */
+.odd .hole:nth-child(odd){
+    background: #cc33cc;
+}
+
+/* Holes - 2 */
+.second .hole:nth-child(4){
+    background: #cc33cc;
+}
+
+/* Holes - 3 */
+.third .hole:nth-child(n+1):nth-child(-n+5){
+    background: #cc33cc;
+}
+
+
+/* Holes - 4 */
+.last .hole:last-child{
+    background: #cc33cc;
+}
+
