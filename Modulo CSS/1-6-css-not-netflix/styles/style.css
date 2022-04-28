@@ -216,10 +216,6 @@ section {
 
 /* Show's Slider Hover State */
 
-.shows-slider a:hover {
-    transform: scale(1.2);
-}
-
 /* Shows Big Cards */
 .shows.big {
 	display: flex;
