@@ -12,6 +12,10 @@
 	padding: 2rem 4.6rem;
 	border: 0.1rem solid $border;
 
+	@include for-size('small'){
+		padding: 1.5rem 1rem 1.5rem 1.5rem;
+	}
+
 	.main__header_group {
 		@include flexbox;
 		align-items: center;
@@ -19,11 +23,18 @@
 
 		.logo {
 			margin-right: 7.5rem;
+			@include for-size('small'){
+				margin-right: 0;
+			}
 		}
 
 		.main_nav {
 			@include flexbox;
 			gap: 2.4rem;
+
+			@include for-size('small'){
+				display: none;
+			}
 
 			.navigation__link {
 				color: $text;
