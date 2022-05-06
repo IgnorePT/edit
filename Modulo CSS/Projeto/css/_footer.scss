@@ -1,0 +1,34 @@
+.footer {
+	border-top: 0.1rem solid $border;
+	display: block;
+	width: 100%;
+	padding: 2.7rem 4.6rem;
+
+	display: flex;
+	justify-content: space-between;
+
+	&__column {
+
+        &__title {
+            margin-bottom: 1rem;
+        }
+        &:not(.footer__column__newsletter){
+            .footer__column__title {
+                margin-bottom: 3rem;
+            }
+        }
+
+        &__links{
+            .footer__menu{
+                &__element{
+                    &__link{
+                        color: $text;
+                        display: block;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+            }
+        }
+	}
+}

@@ -4,18 +4,18 @@ Figma file:
 https://www.figma.com/file/fPjTeQXS41ftx77hGcFvUj/Website-Final?node-id=0%3A1
 
 Objectivos
-[ ] Organização e correta formatação de estrutura de ficheiros.
-[ ] Utilização de SCSS
-[ ] Aplicação de Reset de forma correta
-[ ] Integração correta do css no html
+[x] Organização e correta formatação de estrutura de ficheiros.
+[x] Utilização de SCSS
+[x] Aplicação de Reset de forma correta
+[x] Integração correta do css no html
 [ ] Formatação de Queries para formato mobile presente no figma
-[ ] Correta utilização semântica de elementos html
-[ ] Utilização de ferramentas introduzidas ao longo do módulo.
+[x] Correta utilização semântica de elementos html
+[x] Utilização de ferramentas introduzidas ao longo do módulo.
 
 Plus:
-[ ] Utilização de funções de css
-[ ] Utilização de _partials de SCSS
-[ ] Utilização de mixins de SCSS
+[x] Utilização de funções de css
+[x] Utilização de _partials de SCSS
+[x] Utilização de mixins de SCSS
 [ ] Alguma abordagem original que contemplem por iniciativa pessoal baseado no layout fornecido.
 
 Extra:

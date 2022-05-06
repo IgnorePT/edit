@@ -1,0 +1,44 @@
+.action__button {
+	border: 1px solid transparent;
+	background: transparent;
+	color: rgba(0, 0, 0, 1);
+	padding: 0.8rem 1.6rem;
+    cursor: pointer;
+
+	&:hover {
+		border-color: rgba(0, 0, 0, 1);
+		background: transparent;
+		color: $text;
+	}
+
+    /* Variations */
+    &--rounded{
+        border-radius: 2rem;
+    }
+
+    /* Colors */
+	&--black {
+		background: rgba(0, 0, 0, 1);
+		color: $inverted;
+	}
+
+	&--primary {
+		background: $primary;
+		color: $inverted;
+	}
+
+    &--white{
+        background: rgba(255,255,255, 1);
+        border-color: rgba(255,255,255, 1);
+
+        &:hover{
+            background: $primary;
+            border-color: rgba(255,255,255, 1);
+            color: rgba(255,255,255, 1);
+        }
+    }
+
+    &--text--primary{
+        color: $primary;
+    }
+}

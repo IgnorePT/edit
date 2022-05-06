@@ -1,15 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-</head>
-<body>
-    
-</body>
-<script src="js/main.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Website</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header class="main__header">
+            <div class="main__header_group">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Logo for Company">
+                </div>
+                <nav class="main_nav">
+                    <a href="" class="navigation__link">Pricing</a>
+                    <a href="" class="navigation__link">About</a>
+                    <a href="" class="navigation__link">Tutorials</a>
+                    <a href="" class="navigation__link">Blog</a>
+                </nav>
+            </div>
+            </div>
+            <div class="main__header__group">
+                <button class="action__button">Sign in</button>
+                <button class="action__button action__button--black">Sign up</button>
+            </div>
+        </header>
+
+
+        <!-- Main Component Start -->
+        <main>
+            <!-- Above the fold Video Section -->
+            <section class="main__section">
+                <div class="text_group">
+                    <h1 class="text_group__tile text_group__title--main">Make your website wonderful</h1>
+                    <p class="text_group__subtitle">
+                        Our landing page template works on all devices, so you only have to set it up once, and get
+                        beautiful results forever.
+                    </p>
+                    <div class="actions">
+                        <button class="action__button action__button--primary">
+                            Set a free trial
+                        </button>
+                        <button class="action__button action__button--black">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="video">
+                    <video class="main__video" autoplay muted src="assets/video.mp4"></video>
+                    <button class="action__button action__button--rounded action__button--primary">
+                        Watch more
+                    </button>
+                </div>
+            </section>
+
+            <section class="divider">
+                <div class="vertical__divider">
+                    <span class="vertical__divider__element"></span>
+                </div>
+
+            </section>
+
+
+            <!-- How simple it works Section -->
+            <section class="howitworks__section">
+                <div class="text_group">
+                    <h2 class="text_group__title">How Simple Works</h2>
+                    <p class="text_group__subtitle">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur excepteur sint occaecat cupidatat.
+                    </p>
+                </div>
+
+                <div class="section__image">
+                    <img class="" src="assets/hero-image.png" />
+                </div>
+            </section>
+
+            <!-- Explore the solutions cards Section -->
+            <section class="explore-solutions__section">
+                <div class="text_group">
+                    <h2 class="text_group__title">Explore the solutions</h2>
+                    <p class="text_group__subtitle">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur excepteur sint occaecat cupidatat.
+                    </p>
+                </div>
+
+                <div class="expore__cards">
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="highlight__card">
+                        <div class="highlight__card__image"></div>
+                        <h4 class="highlight__card__title">Headless CMS</h4>
+                        <p class="highlight__card_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section class="blog__section">
+                <div class="text_group">
+                    <h2 class="text_group__title">The most innovative businesses choose Simple</h2>
+                </div>
+                <div class="blog__cards">
+                    <div class="blog__filters__chips">
+                        <span class="chip chip--active">Development</span>
+                        <span class="chip">Blockchain</span>
+                        <span class="chip">NextJS</span>
+                        <span class="chip">ReactJS</span>
+                    </div>
+                    <div class="blog__cards__container">
+                        <div class="blog__card">
+                            <div class="blog__card__featured__image">
+                            </div>
+                            <div class="blog__card__categories">
+                                <span class="chip blog_card__categorie">Development</span>
+                                <span class=" chip chip--active blog_card__categorie">Blockchain</span>
+                            </div>
+                            <p class="blog__card__shortdescription">“How HubSpot saved 25% on developing costs by
+                                switching to Simple.”</p>
+                            <div class="blog__card__author">
+                                <div class="blog__card__author__image"></div>
+                                <span class="blog__card__author__name">Harry Potter</span>
+                            </div>
+                        </div>
+                        <div class="blog__card">
+                            <div class="blog__card__featured__image">
+                            </div>
+                            <div class="blog__card__categories">
+                                <span class="chip blog_card__categorie">Development</span>
+                                <span class=" chip chip--active blog_card__categorie">Blockchain</span>
+                            </div>
+                            <p class="blog__card__shortdescription">“How HubSpot saved 25% on developing costs by
+                                switching to Simple.”</p>
+                            <div class="blog__card__author">
+                                <div class="blog__card__author__image"></div>
+                                <span class="blog__card__author__name">Harry Potter</span>
+                            </div>
+                        </div>
+                        <div class="blog__card">
+                            <div class="blog__card__featured__image">
+                            </div>
+                            <div class="blog__card__categories">
+                                <span class="chip blog_card__categorie">Development</span>
+                                <span class=" chip chip--active blog_card__categorie">Blockchain</span>
+                            </div>
+                            <p class="blog__card__shortdescription">“How HubSpot saved 25% on developing costs by
+                                switching to Simple.”</p>
+                            <div class="blog__card__author">
+                                <div class="blog__card__author__image"></div>
+                                <span class="blog__card__author__name">Harry Potter</span>
+                            </div>
+                        </div>
+                        <div class="blog__card">
+                            <div class="blog__card__featured__image">
+                            </div>
+                            <div class="blog__card__categories">
+                                <span class="chip blog_card__categorie">Development</span>
+                                <span class=" chip chip--active blog_card__categorie">Blockchain</span>
+                            </div>
+                            <p class="blog__card__shortdescription">“How HubSpot saved 25% on developing costs by switching to Simple.”</p>
+                            <div class="blog__card__author">
+                                <div class="blog__card__author__image"></div>
+                                <span class="blog__card__author__name">Harry Potter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="call_to_action">
+                <h3 class="cto__text">Ready to get started?</h3>
+                <button class="action__button action__button--white action__button--text--primary">
+                    Learn More
+                </button>
+            </section>
+
+
+            <!--  Footer -->
+            <footer class="footer">
+                <div class="footer__column footer__column__newsletter">
+                    <h4 class="footer__column__title">Subscribe</h4>
+                    <div class="form__group">
+                        <input class="form__group__input" type="email" name="newsletter-email" id="newsletter-email" placeholder="Email">
+                        <button type="submit" class="action__button action__button--black">Subscribe</button>
+                    </div>
+                    <p>Get the latest news and articles to your inbox every month.</p>
+                </div>
+
+                <div class="footer__column footer__column__links">
+                    <h4 class="footer__column__title">Products</h4>
+
+                    <ul class="footer__menu">
+                        <li class="footer__menu__element"><a href="#WebStudio" class="footer__menu__element__link">Web Studio</a></li>
+                        <li class="footer__menu__element"><a href="#DynamicBoxFlex" class="footer__menu__element__link">DynamicBox
+                                Flex</a></li>
+                        <li class="footer__menu__element"><a href="#ProgrammingForms" class="footer__menu__element__link">Programming
+                                Forms</a></li>
+                        <li class="footer__menu__element"><a href="#Integrations" class="footer__menu__element__link">Integrations</a>
+                        </li>
+                        <li class="footer__menu__element"><a href="#Command-line" class="footer__menu__element__link">Command-line</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__column footer__column__links">
+                    <h4 class="footer__column__title">Resources</h4>
+
+                    <ul class="footer__menu">
+                        <li class="footer__menu__element"><a href="#WebStudio" class="footer__menu__element__link">Web Studio</a></li>
+                        <li class="footer__menu__element"><a href="#DynamicBoxFlex" class="footer__menu__element__link">DynamicBox
+                                Flex</a></li>
+                        <li class="footer__menu__element"><a href="#ProgrammingForms" class="footer__menu__element__link">Programming
+                                Forms</a></li>
+                        <li class="footer__menu__element"><a href="#Integrations" class="footer__menu__element__link">Integrations</a>
+                        </li>
+                        <li class="footer__menu__element"><a href="#Command-line" class="footer__menu__element__link">Command-line</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__column footer__column__branding">
+                    <img src="assets/logo-full.png" alt="Company Logo Full Size">
+                </div>
+            </footer>
+
+        </main>
+    </body>
+    <script src="js/main.js"></script>
 
 </html>

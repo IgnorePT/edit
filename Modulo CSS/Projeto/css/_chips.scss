@@ -1,0 +1,11 @@
+.chip{
+    border: 0.05rem solid $chipsBorder;
+    border-radius: 2rem;
+    padding: 0.4rem 0.8rem;
+
+    &--active{
+        background: $primary;
+        border-color: $primary;
+        color: $inverted;
+    }
+}
