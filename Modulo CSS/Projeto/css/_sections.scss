@@ -21,7 +21,7 @@ section {
 
 		@include for-size('small'){
 			max-width: 100vw;
-			padding: 0 1.2rem;
+			padding: 0 3.2rem;
 		}
 
 		&__title {
@@ -53,7 +53,7 @@ section {
 
 			@include for-size('small'){
 				font-size: 1.6rem;
-				max-width: 100vw;
+				max-width: 80vw;
 			}
 		}
 	}
@@ -125,7 +125,13 @@ section {
 			gap: 1.6rem;
 			background: linear-gradient($secondaryBackground, $secondaryBackground)
 				no-repeat 0 10rem;
+
+				@include for-size('small'){
+					padding: 2rem 3.7rem;
+				}
 		}
+
+	
 	}
 
 	&.blog__section {
@@ -150,5 +156,10 @@ section {
             font-size: 3rem;
             font-weight: 400;
         }
+
+		@include for-size("small"){
+			flex-direction: column;
+			max-width: 100vw;
+		}
     }
 }

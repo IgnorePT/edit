@@ -1,0 +1,10 @@
+.back__to__top{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: $primary;
+    color: $inverted;
+    padding: 2rem;
+    border-radius: 20rem;
+    z-index: 99;
+}

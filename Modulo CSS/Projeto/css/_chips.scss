@@ -3,9 +3,16 @@
     border-radius: 2rem;
     padding: 0.4rem 0.8rem;
 
+    
     &--active{
         background: $primary;
         border-color: $primary;
         color: $inverted;
+    }
+
+    @include for-size("small"){
+        &.blog_card__categorie{
+            font-size: 1.1rem;
+        }
     }
 }

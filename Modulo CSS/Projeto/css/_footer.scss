@@ -7,6 +7,12 @@
 	display: flex;
 	justify-content: space-between;
 
+    @include for-size("small"){
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+
 	&__column {
 
         &__title {
@@ -28,6 +34,10 @@
                     }
                 }
 
+            }
+
+            @include for-size("small"){
+               max-width: 45%;
             }
         }
 	}

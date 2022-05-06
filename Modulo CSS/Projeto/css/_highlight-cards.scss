@@ -1,7 +1,8 @@
 .highlight__card{
-    flex-basis: 100 / 3;
+    flex-basis: calc(100% / 3);
     max-width: 20rem;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -12,6 +13,11 @@
     border-radius: 0.4rem;
     transition: all 0.4s ease;
 
+
+    @include for-size('small'){
+        flex-basis: calc(100% / 2 - 1.2rem);
+        max-width: 16rem;
+    }
 
     &__image{
         border-radius: 100%;

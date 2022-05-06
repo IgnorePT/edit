@@ -71,6 +71,7 @@ a:hover {
 html {
   font-size: 62.5%;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -139,6 +140,12 @@ img, video {
   color: white;
 }
 
+@media screen and (max-width: 767px) {
+  .chip.blog_card__categorie {
+    font-size: 1.1rem;
+  }
+}
+
 .form__group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,6 +178,17 @@ img, video {
 
 .form__group__input ::placeholder {
   color: rgba(0, 0, 0, 0.5);
+}
+
+.back__to__top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #0064da;
+  color: white;
+  padding: 2rem;
+  border-radius: 20rem;
+  z-index: 99;
 }
 
 .main__header {
@@ -273,7 +291,7 @@ section .text_group {
 @media screen and (max-width: 767px) {
   section .text_group {
     max-width: 100vw;
-    padding: 0 1.2rem;
+    padding: 0 3.2rem;
   }
 }
 
@@ -311,7 +329,7 @@ section .text_group__subtitle {
 @media screen and (max-width: 767px) {
   section .text_group__subtitle {
     font-size: 1.6rem;
-    max-width: 100vw;
+    max-width: 80vw;
   }
 }
 
@@ -406,6 +424,12 @@ section.explore-solutions__section .expore__cards {
   background: linear-gradient(whitesmoke, whitesmoke) no-repeat 0 10rem;
 }
 
+@media screen and (max-width: 767px) {
+  section.explore-solutions__section .expore__cards {
+    padding: 2rem 3.7rem;
+  }
+}
+
 section.blog__section {
   padding: 6.5rem 0 8.4rem 0;
   margin: 0 auto;
@@ -438,13 +462,25 @@ section.call_to_action .cto__text {
   font-weight: 400;
 }
 
+@media screen and (max-width: 767px) {
+  section.call_to_action {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 100vw;
+  }
+}
+
 .highlight__card {
-  -ms-flex-preferred-size: 100 / 3;
-      flex-basis: 100 / 3;
+  -ms-flex-preferred-size: calc(100% / 3);
+      flex-basis: calc(100% / 3);
   max-width: 20rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -462,6 +498,14 @@ section.call_to_action .cto__text {
   border-radius: 0.4rem;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .highlight__card {
+    -ms-flex-preferred-size: calc(100% / 2 - 1.2rem);
+        flex-basis: calc(100% / 2 - 1.2rem);
+    max-width: 16rem;
+  }
 }
 
 .highlight__card__image {
@@ -522,6 +566,12 @@ section.call_to_action .cto__text {
       flex-wrap: wrap;
 }
 
+@media screen and (max-width: 767px) {
+  .blog__cards .blog__cards__container {
+    max-width: 100vw;
+  }
+}
+
 .blog__cards .blog__cards__container .blog__card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -534,6 +584,14 @@ section.call_to_action .cto__text {
   background: white;
   width: clamp(2rem, 100%, 21.8rem);
   text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .blog__cards .blog__cards__container .blog__card {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    max-width: 45%;
+  }
 }
 
 .blog__cards .blog__cards__container .blog__card__featured__image {
@@ -552,6 +610,12 @@ section.call_to_action .cto__text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .blog__cards .blog__cards__container .blog__card__categories {
+    gap: 1.2rem;
+  }
 }
 
 .blog__cards .blog__cards__container .blog__card__shortdescription {
@@ -594,6 +658,18 @@ section.call_to_action .cto__text {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 767px) {
+  .footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 3rem;
+  }
+}
+
 .footer__column__title {
   margin-bottom: 1rem;
 }
@@ -606,5 +682,11 @@ section.call_to_action .cto__text {
   color: black;
   display: block;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .footer__column__links {
+    max-width: 45%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
