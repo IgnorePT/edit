@@ -83,6 +83,10 @@ img, video {
   max-width: 100%;
 }
 
+#top {
+  visibility: hidden;
+}
+
 .action__button {
   border: 1px solid transparent;
   background: transparent;
@@ -186,7 +190,7 @@ img, video {
   right: 2rem;
   background: #0064da;
   color: white;
-  padding: 2rem;
+  padding: 1\rem;
   border-radius: 20rem;
   z-index: 99;
 }
