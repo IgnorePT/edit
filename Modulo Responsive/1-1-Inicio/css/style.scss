@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@import "reset";
+
+$maxWidth: 135rem;
+
+$white : rgb(255, 255, 255);
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width: $maxWidth;
+    margin: 0 auto;
+}
+
+.header{
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 10.4rem;
+    max-width: $maxWidth;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    align-items: center;
+    z-index: 99;
+    padding:  5.3rem 4rem;
+
+    &__logo{
+        &__typo{
+            color: $white;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        height: 12.4rem;
+        padding: 6rem;
+        
+    }
+   
+}
+
+.project {
+    background: url("../assets/as1orb74 1.png");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    
+
+    &__text{
+        width: clamp(10rem, 100%, 50vw);
+        position: absolute;
+        bottom: 6rem;
+        left: 6.6rem;
+        
+        &__title{
+            font-weight: 300;
+            font-size: 4rem;
+            color: $white;
+        }
+    }
+}
+
+
+.header__hamburger_menu{
+    label{
+        &:after{
+            position: absolute;
+        }
+        &:before{
+            
+        }
+    }
+}
+
+.main_menu{
+    font-size: bold;
+    font-size: 7.2rem;
+    .active{
+        color: rgba(210, 121, 121, 1);
+    }
+}

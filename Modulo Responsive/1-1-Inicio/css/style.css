@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 135rem;
+  margin: 0 auto;
+}
+
+.header {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 10.4rem;
+  max-width: 135rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  top: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99;
+  padding: 5.3rem 4rem;
+}
+
+.header__logo__typo {
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 12.4rem;
+    padding: 6rem;
+  }
+}
+
+.project {
+  background: url("../assets/as1orb74 1.png");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.project__text {
+  width: clamp(10rem, 100%, 50vw);
+  position: absolute;
+  bottom: 6rem;
+  left: 6.6rem;
+}
+
+.project__text__title {
+  font-weight: 300;
+  font-size: 4rem;
+  color: white;
+}
+
+.header__hamburger_menu label:after {
+  position: absolute;
+}
+
+.main_menu {
+  font-size: bold;
+  font-size: 7.2rem;
+}
+
+.main_menu .active {
+  color: #d27979;
+}
+/*# sourceMappingURL=style.css.map */
