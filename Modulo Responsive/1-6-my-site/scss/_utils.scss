@@ -6,6 +6,7 @@ $sizes: (
     'full': $gridgutter, 
     'double': $gridgutter * 2
 );
+
 @each $name, $size in $sizes {
     @each $mode in margin, padding {
         .#{$mode}#{$name} {
@@ -39,4 +40,8 @@ $sizes: (
         width: 100%;
         height: auto;
     }
+}
+
+.text-right{
+    text-align: right;
 }

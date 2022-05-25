@@ -12,13 +12,31 @@
     }
 }
 
-.gridrow{
-    display: flex;
-    flex-wrap: wrap;
-    .col{
-        flex: 1;
-        box-sizing: border-box;
-        padding-left: $gridgutter / 2;
-        padding-right: $gridgutter / 2;
-    }
+// .gridrow{
+//     display: flex;
+//     flex-wrap: wrap;
+//     .col{
+//         flex: 1;
+//         box-sizing: border-box;
+//         padding-left: $gridgutter / 2;
+//         padding-right: $gridgutter / 2;
+//     }
+// }
+
+.gridrowfull {
+	width: 100%;
+}
+
+$gridcolumns: 6;
+
+@for $i from 1 through $gridcolumns {
+	.col-#{$i} {
+		box-sizing: border-box;
+		width: percentage($i/$gridcolumns);
+		padding-left: $gridgutter / 2;
+		padding-right: $gridgutter / 2;
+	}
+	.offset-#{$i} {
+		margin-left: percentage($i/$gridcolumns);   
+	}
 }

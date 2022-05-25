@@ -2,3 +2,48 @@
 	display: none;
 }
 
+.main__header{
+    background-color: rgba($graydark, 0.6);
+    padding-top: $gridgutter * 2.5;
+    padding-bottom: $gridgutter * 2.5;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo{
+        color: $white;
+        text-decoration: none;
+        font-size: 1.8rem;
+    }
+
+    .menu_action {
+        display: inline-block;
+
+        span{
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: $white;
+            margin-bottom: $gridgutter * 0.4;
+        }
+    }
+
+}
+
+.main__menu{
+    position: absolute;
+    top: -100vh;
+    z-index: 999;
+
+    ul {
+        li{
+            a{
+                color: $white;
+            }
+        }
+    }
+}

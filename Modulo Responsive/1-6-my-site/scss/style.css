@@ -213,6 +213,61 @@ template {
   display: none;
 }
 
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 62.5%;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 html {
   font-family: "Roboto Mono", sans-serif;
   color: #FFF;
@@ -439,6 +494,10 @@ html {
   height: auto;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .gridrow {
   width: calc(100% - 20px);
   margin: 0 auto;
@@ -462,82 +521,179 @@ html {
   }
 }
 
-.gridrow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.gridrowfull {
+  width: 100%;
 }
 
-.gridrow .col {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.col-1 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 16.66667%;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-#hero a {
-  color: #FFF;
-  text-decoration: none;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+.offset-1 {
+  margin-left: 16.66667%;
+}
+
+.col-2 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 1.5rem;
+  width: 33.33333%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.offset-2 {
+  margin-left: 33.33333%;
+}
+
+.col-3 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.offset-3 {
+  margin-left: 50%;
+}
+
+.col-4 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 66.66667%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.offset-4 {
+  margin-left: 66.66667%;
+}
+
+.col-5 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 83.33333%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.offset-5 {
+  margin-left: 83.33333%;
+}
+
+.col-6 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.offset-6 {
+  margin-left: 100%;
+}
+
+/* General */
+.page:not(.home) main {
+  margin-top: 160px;
+}
+
+/* Shared */
+.breadcrumb {
+  margin-bottom: 40px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: #FFF;
+  line-height: 125%;
+}
+
+.breadcrumb a:not(:last-child)::after {
+  content: "\203A";
+  margin-right: 0.5rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Page - Home */
+.home_project {
+  width: 100%;
+  height: 100vh;
+  background: url("../assets/imgs/projeto01.jpg") center no-repeat;
+  background-size: cover;
   position: relative;
 }
 
-@media (min-width: 750px) {
-  #hero a {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 960px) {
-  #hero a {
-    font-size: 2.5rem;
-  }
-}
-
-#hero a .cover_video {
+.home_project .project-name {
   position: absolute;
-  -o-object-fit: cover;
-     object-fit: cover;
+  bottom: 100px;
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  color: #FFF;
+  text-decoration: none;
 }
 
-#hero a .gridrow {
-  margin-bottom: 60px;
-}
-
-@media (min-width: 750px) {
-  #hero a .gridrow {
-    margin-bottom: 70px;
-  }
-}
-
-@media (min-width: 960px) {
-  #hero a .gridrow {
-    margin-bottom: 80px;
-  }
+/* Page - Single Project */
+.single-project .project .feature-image {
+  margin-bottom: 40px;
 }
 
 .menu-state {
   display: none;
+}
+
+.main__header {
+  background-color: rgba(35, 35, 35, 0.6);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__header .logo {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.main__header .menu_action {
+  display: inline-block;
+}
+
+.main__header .menu_action span {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #FFF;
+  margin-bottom: 8px;
+}
+
+.main__menu {
+  position: absolute;
+  top: -100vh;
+  z-index: 999;
+}
+
+.main__menu ul li a {
+  color: #FFF;
 }
 /*# sourceMappingURL=style.css.map */
