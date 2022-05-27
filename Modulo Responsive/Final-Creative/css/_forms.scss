@@ -1,0 +1,29 @@
+.contact_form {
+	display: block;
+	width: 100%;
+
+	.form_group {
+		margin-bottom: $gridgutter;
+
+		input,
+		textarea {
+			display: block;
+			width: 100%;
+			padding: $gridgutter;
+			background-color: $lightGrey;
+			border: $border;
+		}
+	}
+
+	.btn {
+		width: 100%;
+		color: $white;
+		background-color: $accent;
+		border: none;
+		padding: $gridgutter;
+		text-align: center;
+		font-size: "2rem";
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+}

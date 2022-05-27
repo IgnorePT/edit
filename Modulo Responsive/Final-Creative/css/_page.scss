@@ -1,0 +1,39 @@
+section {
+	padding-top: $gridgutter * 3;
+	padding-bottom: $gridgutter * 2;
+}
+
+h2.section_title,
+.section_subtitle {
+	margin-bottom: $gridgutter;
+}
+
+.service_section {
+	.service {
+		text-align: center;
+		padding-top: $gridgutter;
+		padding-bottom: $gridgutter;
+		display: flex;
+		flex-direction: column;
+		gap: $gridgutter;
+	}
+}
+
+.gallery_section {
+	img {
+		height: 100%;
+		object-fit: cover;
+
+		&.square {
+			aspect-ratio: 1;
+		}
+	}
+}
+
+.contact_section {
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+	}
+}

@@ -1,0 +1,28 @@
+$white: #FFF;
+$black: #121212;
+$darkGrey: rgba(28,28,28,1);
+$lightGrey: rgba(238, 238, 238, 1);
+
+$primary: rgba(0, 190, 197, 1);
+$accent: rgba(231, 25, 79, 1);
+$titles: rgba(0,0,0,1);
+$secondary: rgba(153, 153, 153, 1);
+$text: rgba(102, 102, 102, 1);
+
+$tablet: 750px;
+$desktop: 960px;
+$desktoplg: 1400px;
+
+$gridcolumns: 12;
+$gridgutter: 20px;
+
+$gridwidth: calc(100% - #{$gridgutter});
+$gridwidtht: calc(90% - #{$gridgutter});
+$gridwidthd: $desktop - $gridgutter * 2;
+$gridwidthdlg: $desktoplg - $gridgutter * 3;
+
+$basefontsizemobile: $gridgutter / 3 * 2;
+$basefontsizetablet: $gridgutter / 3 * 2 + 1;
+$basefontsizedesktop: $gridgutter / 3 * 2 + 2;
+
+$border:  1px solid $secondary;

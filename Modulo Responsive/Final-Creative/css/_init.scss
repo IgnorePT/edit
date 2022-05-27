@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: "Montserrat", sans-serif;
+}
+
+body {
+	background: $white;
+	font-size: 1.6rem;
+	color: $text;
+}
+
+span,
+p,
+a {
+	font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3 {
+	color: $titles;
+	font-weight: 700;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 4.8rem;
+	color: $accent;
+}
+
+h2 {
+	font-size: 4rem;
+}
+
+h3 {
+	font-size: 2.4rem;
+}
+
+input,
+textarea {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 300;
+	color: $black;
+
+	&::placeholder {
+		color: $black;
+	}
+}
