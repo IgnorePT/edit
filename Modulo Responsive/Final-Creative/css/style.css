@@ -629,8 +629,32 @@ h1 {
   color: #e7194f;
 }
 
+@media screen and (min-width: 750px) {
+  h1 {
+    font-size: 9.6rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  h1 {
+    font-size: 14.8rem;
+  }
+}
+
 h2 {
   font-size: 4rem;
+}
+
+@media screen and (min-width: 750px) {
+  h2 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  h2 {
+    font-size: 6rem;
+  }
 }
 
 h3 {
@@ -770,8 +794,8 @@ footer .social {
 }
 
 footer .social img {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: auto;
+  height: 3rem;
 }
 
 main .hero_section {
@@ -797,7 +821,41 @@ main .hero_section {
 
 @media screen and (min-width: 750px) {
   main .hero_section {
+    background: url(./../assets/header_tablet.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  main .hero_section {
     background: url(./../assets/header_desk.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+main .hero_section h1::after {
+  content: ".";
+  color: #00c6c5;
+}
+
+main .hero_section h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  max-width: 11ch;
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  main .hero_section h3 {
+    font-size: 4.8rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  main .hero_section h3 {
+    font-size: 6rem;
   }
 }
 

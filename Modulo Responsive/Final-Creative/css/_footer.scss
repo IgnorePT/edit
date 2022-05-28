@@ -1,32 +1,31 @@
-footer{
-    text-align: center;
-    background: $darkGrey;
-    color: $white;
-    padding-top: $gridgutter * 2;
-    padding-bottom: $gridgutter * 2;
+footer {
+	text-align: center;
+	background: $darkGrey;
+	color: $white;
+	padding-top: $gridgutter * 2;
+	padding-bottom: $gridgutter * 2;
 
-    .logo{
-        margin-bottom: $gridgutter;
-        h2{
-            color: $white;
-        }
-    }
+	.logo {
+		margin-bottom: $gridgutter;
+		h2 {
+			color: $white;
+		}
+	}
 
-    .copy{
-        font-weight: 300;
-        color: $secondary;
-        margin-bottom: 3.6rem;
-    }
+	.copy {
+		font-weight: 300;
+		color: $secondary;
+		margin-bottom: 3.6rem;
+	}
 
-    .social{
-        display: flex;
-        justify-content: center;
-        gap: 3.6rem;
+	.social {
+		display: flex;
+		justify-content: center;
+		gap: 3.6rem;
 
-        img{
-            width: 2.4rem;
-            height: 2.4rem;
-        }
-    }
-
+		img {
+			width: auto;
+			height: 3rem;
+		}
+	}
 }
