@@ -1,96 +1,114 @@
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Selectors Exercise</title>
+	</head>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Selectors Exercise</title>
-    </head>
+	<body>
+		<h1>Selectors Exercise</h1>
+		<ul>
+			<li>
+				$('.') - Gets elements by classname / same as
+				document.getElementsByClassName
+			</li>
+			<li>
+				$('#') - Gets elements by id / something like document.getElementById
+			</li>
+			<li>
+				Changing
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"
+					>style</a
+				>
+				via javascript
+			</li>
+			<li>
+				Changing <a href="http://api.jquery.com/css/">css</a> using jQuery
+			</li>
+		</ul>
+		<p>PARAGRAPH NOT INSIDE A DIV</p>
 
-    <body>
-        <h1>Selectors Exercise</h1>
-        <ul>
-            <li>$('.') - Gets elements by classname / same as document.getElementsByClassName</li>
-            <li>$('#') - Gets elements by id / something like document.getElementById</li>
-            <li>Changing <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">style</a> via
-                javascript</li>
-            <li>Changing <a href="http://api.jquery.com/css/">css</a> using jQuery</li>
-        </ul>
-        <p>PARAGRAPH NOT INSIDE A DIV</p>
+		<div>
+			<p class="hello">I am a paragraph with a class</p>
+			<p id="special">I am a paragraph with an ID</p>
 
-        <div>
-            <p class="hello">I am a paragraph with a class</p>
-            <p id="special">I am a paragraph with an ID</p>
+			<h2>I am an awesome h2</h2>
 
-            <h2>I am an awesome h2</h2>
+			<p>
+				Roof party yr hella synth, Wes Anderson narwhal four dollar toast before
+				they sold out retro lo-fi. Austin iPhone pop-up farm-to-table, PBR&B
+				McSweeney's ennui messenger bag distillery before they sold out Portland
+				wolf fanny pack YOLO. Locavore slow-carb trust fund farm-to-table.
+				Pinterest gastropub lo-fi, McSweeney's trust fund VHS shabby chic ugh
+				Austin twee. Messenger bag banjo lumbersexual, whatever 3 wolf moon XOXO
+				normcore. Pug fanny pack 3 wolf moon, typewriter organic chia mustache
+				scenester seitan shabby chic Blue Bottle salvia ugh iPhone. Fanny pack
+				Williamsburg direct trade, cold-pressed disrupt flannel listicle health
+				goth asymmetrical freegan mixtape street art pour-over whatever.
+			</p>
+		</div>
 
+		<div>
+			<h2>Things I need to do</h2>
 
-            <p>Roof party yr hella synth, Wes Anderson narwhal four dollar toast before they sold out retro lo-fi.
-                Austin iPhone pop-up farm-to-table, PBR&B McSweeney's ennui messenger bag distillery before they sold
-                out Portland wolf fanny pack YOLO. Locavore slow-carb trust fund farm-to-table. Pinterest gastropub
-                lo-fi, McSweeney's trust fund VHS shabby chic ugh Austin twee. Messenger bag banjo lumbersexual,
-                whatever 3 wolf moon XOXO normcore. Pug fanny pack 3 wolf moon, typewriter organic chia mustache
-                scenester seitan shabby chic Blue Bottle salvia ugh iPhone. Fanny pack Williamsburg direct trade,
-                cold-pressed disrupt flannel listicle health goth asymmetrical freegan mixtape street art pour-over
-                whatever.</p>
+			<ul id="fancyStuff">
+				<li>Walk Dog <input type="checkbox" checked /></li>
+				<li>Feed Dog <input type="checkbox" checked /></li>
+				<li>Wash Dog <input type="checkbox" /></li>
+			</ul>
+		</div>
 
-        </div>
+		<div>
+			<h2>I am another awesome h2</h2>
 
-        <div>
-            <h2>Things I need to do</h2>
+			<p>
+				Cardigan Tumblr mlkshk, fap tilde 3 wolf moon Portland. Heirloom health
+				goth taxidermy blog lo-fi selfies, post-ironic master cleanse
+				fingerstache normcore. Kickstarter plaid twee, bespoke single-origin
+				coffee sustainable lo-fi vinyl Pinterest pork belly
+				<em>cronut skateboard</em> 3 wolf moon. Normcore single-origin coffee
+				salvia, bespoke Austin swag Godard before they sold out kogi disrupt
+				locavore. Lumbersexual Shoreditch Vice, artisan American Apparel master
+				cleanse yr salvia vegan. Bespoke letterpress heirloom kale chips deep v
+				four loko. Lomo sustainable put a bird on it trust fund post-ironic
+			</p>
 
-            <ul id="fancyStuff">
-                <li>Walk Dog <input type="checkbox" checked> </li>
-                <li>Feed Dog <input type="checkbox" checked> </li>
-                <li>Wash Dog <input type="checkbox"></li>
-            </ul>
-        </div>
+			<p>I'm the second paragraph inside this div!</p>
+		</div>
 
-        <div>
-            <h2>I am another awesome h2</h2>
+		<p>PARAGRAPH NOT INSIDE A DIV</p>
 
-            <p>Cardigan Tumblr mlkshk, fap tilde 3 wolf moon Portland. Heirloom health goth taxidermy blog lo-fi
-                selfies, post-ironic master cleanse fingerstache normcore. Kickstarter plaid twee, bespoke single-origin
-                coffee sustainable lo-fi vinyl Pinterest pork belly <em>cronut skateboard</em> 3 wolf moon. Normcore
-                single-origin coffee salvia, bespoke Austin swag Godard before they sold out kogi disrupt locavore.
-                Lumbersexual Shoreditch Vice, artisan American Apparel master cleanse yr salvia vegan. Bespoke
-                letterpress heirloom kale chips deep v four loko. Lomo sustainable put a bird on it trust fund
-                post-ironic</p>
+		<div>
+			<h2>A less awesome h2</h2>
 
-            <p>I'm the second paragraph inside this div!</p>
-        </div>
+			<p>
+				Roof party yr hella synth, Wes Anderson narwhal four dollar toast before
+				they sold out retro lo-fi. Austin iPhone pop-up farm-to-table, PBR&B
+				McSweeney's ennui messenger bag distillery before they sold out Portland
+				wolf fanny pack YOLO. Locavore slow-carb trust fund farm-to-table.
+				Pinterest gastropub lo-fi, McSweeney's trust fund VHS shabby chic ugh
+				Austin twee. Messenger bag banjo lumbersexual, whatever 3 wolf moon XOXO
+				normcore. Pug fanny pack 3 wolf moon, typewriter organic chia mustache
+				scenester seitan shabby chic Blue Bottle salvia ugh iPhone. Fanny pack
+				Williamsburg direct trade, cold-pressed disrupt flannel listicle health
+				goth asymmetrical freegan mixtape street art pour-over whatever
+			</p>
 
-        <p>PARAGRAPH NOT INSIDE A DIV</p>
+			<p>One last paragraph here!</p>
 
+			<a href="https://www.facebook.com">I am a link to facebook</a>
+			<a href="https://www.facebook.com">I am another link to facebook</a>
+			<br />
 
-        <div>
-            <h2>A less awesome h2</h2>
+			<input type="text" name="name" /><label> Name</label><br />
+			<input type="password" name="password" /><label> Password</label><br />
+		</div>
 
-            <p>Roof party yr hella synth, Wes Anderson narwhal four dollar toast before they sold out retro lo-fi.
-                Austin iPhone pop-up farm-to-table, PBR&B McSweeney's ennui messenger bag distillery before they sold
-                out Portland wolf fanny pack YOLO. Locavore slow-carb trust fund farm-to-table. Pinterest gastropub
-                lo-fi, McSweeney's trust fund VHS shabby chic ugh Austin twee. Messenger bag banjo lumbersexual,
-                whatever 3 wolf moon XOXO normcore. Pug fanny pack 3 wolf moon, typewriter organic chia mustache
-                scenester seitan shabby chic Blue Bottle salvia ugh iPhone. Fanny pack Williamsburg direct trade,
-                cold-pressed disrupt flannel listicle health goth asymmetrical freegan mixtape street art pour-over
-                whatever</p>
-
-            <p>One last paragraph here!</p>
-
-            <a href="https://www.facebook.com">I am a link to facebook</a>
-            <a href="https://www.facebook.com">I am another link to facebook</a>
-            <br>
-
-            <input type="text" name="name" /><label> Name</label><br />
-            <input type="password" name="password" /><label> Password</label><br />
-
-        </div>
-
-        <p>PARAGRAPH NOT INSIDE A DIV</p>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script>
-        </script>
-        <script id="your_code_goes_here">
-
-            /* 
+		<p>PARAGRAPH NOT INSIDE A DIV</p>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script></script>
+		<script id="your_code_goes_here">
+			/* 
             1. Write the following content on these elements:
                 • h1 – I love h1
                 • h2 – Secondary title
@@ -100,35 +118,35 @@
                 • Make the <label> elements all UPPERCASE without changing the HTML
             */
 
-            document.getElementsByTagName('h1')[0].innerHTML = "I love h1";
+			document.getElementsByTagName("h1")[0].innerHTML = "I love h1";
 
-            var h2Elements = document.querySelectorAll('h2');
+			var h2Elements = document.querySelectorAll("h2");
 
-            //Versao notmal
-            for(var i = 0; i < h2Elements.length; i++){
-                h2Elements[i].innerText = "csfsdfd"
-            }
+			//Versao notmal
+			for (var i = 0; i < h2Elements.length; i++) {
+				h2Elements[i].innerText = "csfsdfd";
+			}
 
-            //Versao xpto
-            for( var h2 in h2Elements){
-                h2.innerHTML = "dsfsdfsdfds"
-            }
+			//Versao xpto
+			for (var h2 in h2Elements) {
+				h2.innerHTML = "dsfsdfsdfds";
+			}
 
-            document.querySelectorAll('h2').forEach(function(element){
-                element.innerText = " Secondary title";
-                element.style.color = "orange";
-            })
+			document.querySelectorAll("h2").forEach(function (element) {
+				element.innerText = " Secondary title";
+				element.style.color = "orange";
+			});
 
-            document.getElementById('special').innerText = "I am the special one";
+			document.getElementById("special").innerText = "I am the special one";
 
-            document.querySelector('input[type=text]').value = "Nelson Fernandes";
-            document.querySelector('input[type=password]').value = "******";
+			document.querySelector("input[type=text]").value = "Nelson Fernandes";
+			document.querySelector("input[type=password]").value = "******";
 
-            document.querySelectorAll('label').forEach(element => {
-                element.innerText = element.innerText.toUpperCase();
-            })
+			document.querySelectorAll("label").forEach((element) => {
+				element.innerText = element.innerText.toUpperCase();
+			});
 
-            /* 
+			/* 
             2. Change style attribute to accomplish the following styling:
                 • Give the <body> element a background of #bdc3c7
                 • Make all <h2> elements orange
@@ -137,19 +155,28 @@
                 • Make all "checked" checkboxes have a left margin of 50px(margin-left: 50px)
             */
 
-            document.getElementsByTagName('body')[0].style.background = "#bdc3c7";
+			document.getElementsByTagName("body")[0].style.background = "#bdc3c7";
 
-            document.querySelectorAll("li").forEach(liElement => {
-                liElement.style.color = "aqua"
-            });
+			document.querySelectorAll("li").forEach((liElement) => {
+				liElement.style.color = "aqua";
+			});
 
-            document.querySelectorAll("div")[2].querySelectorAll('p')[1].style.border = "5px solid #fff";
+			document
+				.querySelectorAll("div")[2]
+				.querySelectorAll("p")[1].style.border = "5px solid #fff";
 
-            document.querySelectorAll('input[type=checkbox]:checked').forEach(input => {
-                input.style.marginLeft = "50px";
-            });
+			document
+				.querySelectorAll("input[type=checkbox]:checked")
+				.forEach((input) => {
+					input.style.marginLeft = "50px";
+				});
 
-            /*
+			var allcheck = document.querySelectorAll("input[type=checkbox]:checked");
+			for (var i = 0; i < allcheck.length; i++) {
+				allcheck[i].style.marginleft = "600px";
+			}
+
+			/*
             3. Use the css function to change the following items:
                 • Change the background on every paragraph to be yellow
                 • Make all inputs have a 3px red border
@@ -159,48 +186,42 @@
                 • Make the <em> in the 3rd <div> element white and 20px font(font-size:20px)
             */
 
+			$("p").css("background", "yellow");
+			$("input").css("border", "3px solid red");
+			$(".hello").css("background", "grey");
+			$("div > p").css("font-size", "25px");
 
-            $('p').css("background", "yellow");
-            $('input').css('border', '3px solid red');
-            $('.hello').css('background', "grey");
-            $('div > p').css('font-size', '25px');
+			var thridDiv = $("div")[2];
+			$(thridDiv).find("p").css("background", "pink");
+			$(thridDiv).find("em").css("font-size", "20px").css("color", "white");
 
-            var thridDiv = $('div')[2];
-            $(thridDiv).find('p').css('background', 'pink');
-            $(thridDiv).find('em').css('font-size', '20px').css('color', 'white');
-
-
-
-            /*
+			/*
             4. Create an ul with the li content resulting on the iteration of fancyStuffContent 
             values. Append it to the last available div. (Do it in plain JS and in jQuery
             */
 
-            /* Pure JS */
-            var CustomList = document.createElement('ul');
+			/* Pure JS */
+			var CustomList = document.createElement("ul");
 
-            document.querySelectorAll("#fancyStuff li").forEach(element => {
-                let liElement = document.createElement("li");
+			document.querySelectorAll("#fancyStuff li").forEach((element) => {
+				let liElement = document.createElement("li");
 
-                liElement.innerText = element.innerText;
-                CustomList.appendChild(liElement);
-            })
+				liElement.innerText = element.innerText;
+				CustomList.appendChild(liElement);
+			});
 
-            var lastDiv = document.querySelectorAll("div");
+			var lastDiv = document.querySelectorAll("div");
 
-            lastDiv[lastDiv.length - 1].appendChild(CustomList);
+			lastDiv[lastDiv.length - 1].appendChild(CustomList);
 
+			/* JQuery  */
 
-            /* JQuery  */
+			var ulElement = $("<ul>");
+			$("#fancyStuff li").each(function (index) {
+				$(ulElement).append("<li>" + $(this).text() + "</li>");
+			});
 
-            var ulElement = $('<ul>');
-            $('#fancyStuff li').each(function(index){
-                $(ulElement).append('<li>'+ $( this ).text() +'</li>');
-            });
-
-            $('div').last().append(ulElement);
-
-        </script>
-    </body>
-
+			$("div").last().append(ulElement);
+		</script>
+	</body>
 </html>
