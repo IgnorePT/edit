@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Exercise</title>
+    <style>
+        div {
+          width: 50px;
+          height: 50px;
+          display: inline-block;
+        }
+        .brown{
+          background-color: brown;
+        }
+        .green{
+          background-color: green;
+        }
+        .blue{
+          background-color: blue;
+        }
+        .purple{
+          background-color: purple;
+        }
+        .yellow{
+          background-color: yellow;
+        }
+        .car1 {
+         background-color: #8C9C12;
+        }
+        .car2 {
+         background-color: #1DA788;
+        }
+        .car1, .car2 {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="change_heading">Change Me!</h1>
+    SELECTED COLOR <span class="selected">None!</span>
+    <section>
+        <div class="brown"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <div class="yellow"></div>
+    </section>
+    <h2>Race!</h2>
+    <button id="race">Start the race!</button>
+    <br>
+    <div class="car1"></div>
+    <br>
+    <div class="car2"></div>
+    <br />
+    <h1>Exercise</h1>
+    <h2>Part 1</h2>
+
+    <ol>
+    <li><p>Add the necessary code to wait for the DOM to load to make sure that anything you manipulate in the DOM has loaded. You can do this either using <code>window.onload</code> or adding an event listener for <code>DOMContentLoaded</code>.</p></li>
+    <li><p>Replace the text &quot;Change me&quot; with &quot;Hello World!&quot;.</p></li>
+    <li><p>When a user hovers over one of the colored boxes change the text to display the color that is being hovered over.</p></li>
+    <li><p>Create a new <code>div</code> element.</p></li>
+    <li><p>Give your new <code>div</code> a class of <code>purple</code> and style it so that it has a background color of purple. </p></li>
+    <li><p>Append your new <code>div</code> to the page to the <code>section</code> tag.</p></li>
+    </ol>
+
+    <h2>Part 2</h2>
+
+    <p>Create a racing game with the two cars. When the race button is pressed, the two cars should move across the screen until one of them is at the end of the screen. When one of the blocks reaches the end - you should alert &quot;winner!&quot;</p>
+
+    <h2>Part 3</h2>
+
+    <p>For this assignment you will be combining your knowledge of DOM access and events to build a todo app!</p>
+
+    <p>As a user, you should be able to:</p>
+
+    <ul>
+    <li>Add a new todo (by submitting a form)</li>
+    <li>Mark a todo as completed (cross out the text of the todo)</li>
+    <li>Remove a todo</li>
+    </ul>
+
+    <h2>Part 4:</h2>
+
+    <p>Using localStorage, try to store your todos so that if you refresh the page you do not lose what you have added to the list! As a super bonus, try to also save todos that you have marked as complete!</p>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(){
+        document.getElementById("change_heading").innerText = "Hello world!";
+        var selectedColor = document.getElementsByClassName("selected")[0];
+        var colorsSection = document.getElementsByTagName("section")[0];
+
+        // var cloneColor = document.getElementsByTagName("section")[0].getElementsByTagName("div")[0];
+        // newPurpleDiv = cloneColor.cloneNode(true);
+        // var newPurpleDiv = document.getElementsByTagName("section")[0].getElementsByTagName("div")[0].outerHTML;
+
+        var newPurpleDiv = document.createElement("div");
+        newPurpleDiv.className = "purple";
+        colorsSection.appendChild(newPurpleDiv);
+        
+        var colors = document.querySelectorAll("section > div");
+        for(var i = 0; i < colors.length; i++){
+          colors[i].addEventListener("mouseover", function(e) {
+            selectedColor.innerText = e.target.className;
+          })
+        }
+        colorsSection.addEventListener("mouseout", function(e) {
+          selectedColor.innerText = "None!";
+        })
+        
+        var carOnePosition = 0;
+        var carTwoPosition = 0;
+        var carOneDiv = document.querySelector(".car1");
+        var carTwoDiv = document.querySelector(".car2");
+        // Math.random() -> número aleatório entre 0 e 1
+        // Math.random() * 10 -> entre 0 e 10
+        // Math.floor(n) -> arrendondar por excesso N
+        function getRandomNumber () {
+          return Math.floor(Math.random() * 10);
+        }
+
+        document.getElementById("race").addEventListener("click", function() {
+          var interval = setInterval(function() {
+              carOnePosition += getRandomNumber();
+              carTwoPosition += getRandomNumber();
+              if(carOnePosition >= 100 || carTwoPosition >= 100) {
+                clearInterval(interval);
+                alert(`Car ${carOnePosition > carTwoPosition ? 1 : 2} has won!`);
+                return;
+              }
+              carOneDiv.style.marginLeft = `${carOnePosition}%`;
+              carTwoDiv.style.marginLeft = `${carTwoPosition}%`;
+          }, 500);
+        })
+        
+
+      });
+    </script>
+</body>
+</html>
