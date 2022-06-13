@@ -23,7 +23,7 @@ const avaliableShapes = {
     rectangle: "rectangle"
 }
 
-function ShapeFn(name, sides, sideLength) {
+function Shape(name, sides, sideLength) {
     this.name = name;
     this.sides = sides;
     this.sideLength = sideLength;
@@ -31,14 +31,14 @@ function ShapeFn(name, sides, sideLength) {
     this.calcPerimeter = function(){
         this.perimeter = this.sideLength * this.sides;
     }
+    this.calcPerimeter();
 }
 
-var square = new ShapeFn(avaliableShapes.square, 4, 5);
+var square = new Shape(avaliableShapes.square, 4, 5);
 
-square.calcPerimeter();
 console.log(square.perimeter);
 
-var triangle = new ShapeFn(avaliableShapes.triangle, 3, 3);
+var triangle = new Shape(avaliableShapes.triangle, 3, 3);
 
 triangle.calcPerimeter();
 console.log(square.perimeter);
@@ -55,49 +55,20 @@ console.log(square.perimeter);
 // works ok.
 
 
-// function Square(sideLength){
-//     new Shape(avaliableShapes.square, 4, null);
-//     this.sideLength = sideLength;
-//     ;
-//     this.calcArea = function(){
-//         this.area = this.sideLength * this.sideLength
-//     }
- 
-// }
 
-class Shape {
+function Square(sideLength){    
+    var square = new Shape(avaliableShapes.square, 4, sideLength);
 
-    name;
-    sides;
-    sideLength;
-
-    constructor(name, sides, sideLength){
-        this.name = name;
-        this.sides = sides;
-        this.sideLength = sideLength;
-    }
-}
-
-class Square extends Shape {
-
-    constructor(sideLength){
-        this.name = "square";
-        this.sides = 4;
-        this.sideLength = sideLength;
+    square.calcArea = () => {
+        square.area = square.sideLength * square.sideLength
     }
 
-    get area(){
-        return this.area;
-    } 
-
-    calcArea(){
-        this.area = this.sideLength * this.sideLength
-    }
+    square.calcArea();
+    return square;
+    
 }
 
 const square2 = new Square(4);
-
-square2.calcArea();
 console.log(square2.area);
 
 
