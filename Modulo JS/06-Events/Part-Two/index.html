@@ -3,84 +3,238 @@
 
     <head>
         <meta charset=utf-8 />
-        <title>Calculator</title>
+        <title>Part Two</title>
+
+        <style>
+            div {
+                width: 50px;
+                height: 50px;
+                display: inline-block;
+            }
+
+            .brown {
+                background-color: brown;
+            }
+
+            .green {
+                background-color: green;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .purple {
+                background-color: purple;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .car1 {
+                background-color: #8C9C12;
+            }
+
+            .car2 {
+                background-color: #1DA788;
+            }
+
+            .car3 {
+                background-color: red;
+            }
+
+            .car1,
+            .car2 {
+                margin-left: 0;
+            }
+        </style>
     </head>
 
     <body>
 
-        <label>Square this number:
-            <input type="number" id="square-input" size="2">
-        </label>
-        <button id="square-button">Calculate</button>
-        <br><br>
+        <h1 id="change_heading">Change Me!</h1>
+        SELECTED COLOR <span class="selected">None!</span>
+        <section>
+            <div class="brown"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+            <div class="yellow"></div>
+        </section>
+        <h2>Race!</h2>
+        <button id="race">Start the race!</button>
+        <br>
+        <div class="car1"></div>
+        <br>
+        <div class="car2"></div>
+        <br />
+        <div class="car3"></div>
+        <br />
 
-        <label>Half this number:
-            <input type="number" id="half-input" size="2">
-        </label>
-        <button id="half-button">Calculate</button>
-        <br><br>
+        <br />
 
-        <label>
-            Fraction:
-            <input type="number" id="percent1-input" size="2">
-        </label>
-        <label>
-            Whole:
-            <input type="number" id="percent2-input" size="2">
-        </label>
-        <button id="percent-button">Calculate</button>
-        <br><br>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <label>Calculate area of circle with radius:
-            <input type="number" id="area-input" size="2">
-        </label>
-        <button id="area-button">Calculate</button>
-        <br><br>
-        <div id="solution"></div>
+        <input type="text" id="InputTodo" placeholder="Write Todo" />
+        <button id="AddToDo" type="submit" value="Add">Add Todo</button>
+
+
+
+
+
+        <h1>Exercise</h1>
+        <h2>Part 1</h2>
+
+        <ol>
+            <li>
+                <p>Add the necessary code to wait for the DOM to load to make sure that anything you manipulate in the
+                    DOM has loaded. You can do this either using <code>window.onload</code> or adding an event listener
+                    for <code>DOMContentLoaded</code>.</p>
+            </li>
+            <li>
+                <p>Replace the text &quot;Change me&quot; with &quot;Hello World!&quot;.</p>
+            </li>
+            <li>
+                <p>When a user hovers over one of the colored boxes change the text to display the color that is being
+                    hovered over.</p>
+            </li>
+            <li>
+                <p>Create a new <code>div</code> element.</p>
+            </li>
+            <li>
+                <p>Give your new <code>div</code> a class of <code>purple</code> and style it so that it has a
+                    background color of purple. </p>
+            </li>
+            <li>
+                <p>Append your new <code>div</code> to the page to the <code>section</code> tag.</p>
+            </li>
+        </ol>
+
+        <h2>Part 2</h2>
+
+        <p>Create a racing game with the two cars. When the race button is pressed, the two cars should move across the
+            screen until one of them is at the end of the screen. When one of the blocks reaches the end - you should
+            alert &quot;winner!&quot;</p>
+
+        <h2>Part 3</h2>
+
+        <p>For this assignment you will be combining your knowledge of DOM access and events to build a todo app!</p>
+
+        <p>As a user, you should be able to:</p>
+
+        <ul>
+            <li>Add a new todo (by submitting a form)</li>
+            <li>Mark a todo as completed (cross out the text of the todo)</li>
+            <li>Remove a todo</li>
+        </ul>
+
+        <h2>Part 4:</h2>
+
+        <p>Using localStorage, try to store your todos so that if you refresh the page you do not lose what you have
+            added to the list! As a super bonus, try to also save todos that you have marked as complete!</p>
 
         <script>
+            window.onload = () => {
 
-            const squareNumber = number => Math.pow(number, 2);
-            const halfNumber = number => number / 2;
-            const percentOf = (fraction, whole) => whole / fraction;
-            const areaOfCircle = (r) => Math.PI * Math.pow(r, 2);
+                // Part 1.2
+                document.getElementById('change_heading').innerText = "Hello World!";
 
-            var solutionElement = document.getElementById("solution");
+                //Part 1.3
+                function activateBoxMouseHover() {
+                    var colorBoxes = document.querySelectorAll("section > div");
 
-            document.getElementById("square-button").addEventListener("click", function () {
-                var value = document.getElementById("square-input").value;
-                solutionElement.innerText = squareNumber(value);
-            })
+                    Array.from(colorBoxes).forEach(box => {
+                        box.addEventListener('mouseover', function (e) {
+                            document.getElementsByClassName('selected')[0].innerText = this.className;
+                        })
+                    })
+                }
+                activateBoxMouseHover();
 
-            document.getElementById("half-button").addEventListener("click", function () {
-                var value = document.getElementById("half-input").value;
-                solutionElement.innerText = halfNumber(value);
-            })
+                //Part 1.4
+                var newDiv = document.createElement('div');
+                //Part 1.5
+                newDiv.classList.add("purple");
+                //Part 1.6
+                document.getElementsByTagName('section')[0].appendChild(newDiv);
+                activateBoxMouseHover();
 
-            document.getElementById("percent-button").addEventListener("click", function () {
-                var fraction = document.getElementById("percent1-input").value;
-                var whole = document.getElementById("percent2-input").value;
 
-                solutionElement.innerText = percentOf(fraction, whole);
-            })
+                //Part 2
+                function Pilot(classIdentifier, pilotName) {
+                    this.car = document.querySelector('.' + classIdentifier);
+                    this.speed = 0;
+                    this.currentPosition = 0;
 
-            document.getElementById("area-button").addEventListener("click", function () {
-                var radious = document.getElementById("area-input").value;
-                solutionElement.innerText = areaOfCircle(radious).toFixed(2);
-            })
+                    this.getPilotName = function () {
+                        return pilotName;
+                    }
 
-            function complexCalculation(number) {
-                var half = halfNumber(number);
-                console.log("Result Step 1: ", half)
-                var squared = squareNumber(half);
-                console.log("Result Step 2: ", squared)
-                var area = areaOfCircle(squared);
-                console.log("Result Step 3: ", area)
-                var result = percentOf(squared, area)
-                console.log("Result Step 4: ", result)
+                    this.setPilotToStartLine = function () {
+                        this.currentPosition = 0;
+                    }
+
+                    this.setCurrentSpeed = function () {
+                        this.speed = Math.random() * 10;
+                    }
+
+                    this.setPilotNewPosition = function () {
+                        this.currentPosition = this.currentPosition + this.speed;
+                    }
+
+                    this.updatePilotPositionOnMap = function () {
+                        this.car.style.marginLeft = (this.currentPosition < 100) ? this.currentPosition + "%" : window.innerWidth - 75 + "px";
+                    }
+
+                    this.pilotHasFinishTheRace = function () {
+                        return this.currentPosition >= 100;
+                    }
+                }
+
+                var Pilots = [
+                    new Pilot('car1', 'Michael Schumacher'),
+                    new Pilot('car2', 'Fernando Alonso'),
+                    new Pilot('car3', 'Ruben Barrichelo')
+                ]
+
+                function checkWinner() {
+                    Pilots.sort((a, b) => b.currentPosition - a.currentPosition);
+                    alert(Pilots[0].getPilotName() + " wins the race");
+                }
+
+                function startRace() {
+                    var winnerFound = false;
+
+                    Pilots.forEach(function (pilot){
+                        pilot.setPilotToStartLine();
+                    })
+
+                    var race = setInterval(function () {
+
+                        if(winnerFound){
+                            checkWinner();
+                            clearInterval(race);
+                        }
+
+                        Pilots.forEach(function (pilot){
+                            if (pilot.pilotHasFinishTheRace()) {
+                                winnerFound = true;
+                            }
+
+                            pilot.setCurrentSpeed();
+                            pilot.setPilotNewPosition();
+                            pilot.updatePilotPositionOnMap();
+                        });
+                        
+                    }, 100)
+                }
+
+                document.getElementById("race").addEventListener("click", startRace);
             }
-
-            complexCalculation(5);
 
         </script>
     </body>
