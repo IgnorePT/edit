@@ -72,9 +72,6 @@
         <br />
 
         <br />
-
-        <br />
-        <br />
         <br />
         <br />
         <br />
@@ -82,13 +79,19 @@
         <input type="text" id="InputTodo" placeholder="Write Todo" />
         <button id="AddToDo" type="submit" value="Add">Add Todo</button>
 
+        <div class="todo-exercice">
+            <div class="todoList">
+                <ul></ul>
+            </div>
+        </div>
+
+
 
 
 
 
         <h1>Exercise</h1>
         <h2>Part 1</h2>
-
         <ol>
             <li>
                 <p>Add the necessary code to wait for the DOM to load to make sure that anything you manipulate in the
@@ -234,6 +237,27 @@
                 }
 
                 document.getElementById("race").addEventListener("click", startRace);
+
+                /** Part 3 **/
+
+                document.getElementById("AddToDo").addEventListener("click", function(e){
+                    e.preventDefault();
+
+                    var li = document.createElement("li");
+                    li.classList.add("todo");
+                    li.innerText = document.getElementById("InputTodo").value;
+                    
+                    document.querySelector('.todoList ul').appendChild(li);
+
+
+                })
+                
+                
+                
+                localStorage.getItem('todos');
+
+
+
             }
 
         </script>
