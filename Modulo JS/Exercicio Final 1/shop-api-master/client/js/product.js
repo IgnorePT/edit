@@ -4,15 +4,25 @@ const getApiUrl = (id) => {
     return `api/getProduct?productId=${id}`
 }
 
-const setTextElement = (selector, text) => {
-    document.getElementById(selector).innerText = text;
+const resetStyleSizeButtons = (sizeButtons) => {
+    sizeButtons.forEach(sizeButton => sizeButton.classList.remove("active"));
 }
 
-const setFeaturedImage = ({ image }) => {
+const activateAddToCart = () => {
+    document.querySelector(".cart > button").disabled = false;
+}
+
+const setMaximumQuantity = (quantity) => {
+    const input = document.querySelector('input[name=qty]');
+    input.value = 1;
+    input.setAttribute("max", quantity);
+}
+
+const setFeaturedImage = (image) => {
     document.getElementById("image").src = image;
 }
 
-const setProductScore = ({ score }) => {
+const setProductScore = (score) => {
     const stars = document.querySelectorAll("#score > .icn-star");
 
     stars.forEach((star, index) => {
@@ -22,31 +32,27 @@ const setProductScore = ({ score }) => {
     })
 }
 
-const resetStyleSizeButtons = (sizeButtons) => {
-    sizeButtons.forEach(sizeButton => sizeButton.classList.remove("active"));
-}
+const setProductSizes = (sizes) => {
 
-const setMaximumQuantity = (quantity) => {
-   const input = document.querySelector('input[name=qty]');
-   input.setAttribute("max", quantity);
-} 
-
-const setProductSizes = ({ sizes }) => {
-    
     const sizeButtons = document.querySelectorAll(".sizebtns > button");
     const availableSizes = Object.keys(sizes);
 
     sizeButtons.forEach((sizeButton) => {
         if (availableSizes.includes(sizeButton.innerText)) {
             sizeButton.disabled = false;
+         
+            sizeButton.addEventListener("click", function () {
+                activateAddToCart();
+                resetStyleSizeButtons(sizeButtons);
+                setMaximumQuantity(sizes[sizeButton.innerText]);    
+                this.classList.add("active");
+            })
         }
-
-        sizeButton.addEventListener("click", function(){
-            resetStyleSizeButtons(sizeButtons);
-            setMaximumQuantity(sizes[sizeButton.innerText]);
-            this.classList.add("active");
-        })
     })
+}
+
+const setTextElement = (selector, text) => {
+    document.getElementById(selector).innerText = text;
 }
 
 const setProductTextData = ({ name, price, brand, description, madeIn, partnership }) => {
@@ -58,17 +64,36 @@ const setProductTextData = ({ name, price, brand, description, madeIn, partnersh
     setTextElement("partnership", partnership);
 }
 
+const activateQuantityButtons = () => {
+
+    const input = document.querySelector('input[name=qty]');
+
+    document.getElementsByClassName('btnright')[0].addEventListener("click", () => {
+       
+        if (input.value < input.getAttribute("max")) {
+            input.value = parseInt(input.value) + 1;
+        }
+    })
+    document.getElementsByClassName('btnleft')[0].addEventListener("click", () => {
+        if (input.value > input.getAttribute("min")) {
+            input.value = parseInt(input.value) - 1;
+        }
+    })
+}
+
+
 window.addEventListener("DOMContentLoaded", async () => {
 
     const productId = queryParameters.get("id");
-
     const response = await fetch(getApiUrl(productId));
     const product = await response.json();
 
     setProductTextData(product);
-    setFeaturedImage(product);
-    setProductScore(product);
-    setProductSizes(product);
+    setFeaturedImage(product.image);
+    setProductScore(product.score);
+    setProductSizes(product.sizes);
+
+    activateQuantityButtons();
 });
 
 

@@ -948,6 +948,14 @@ small, .small, .fancytext, .central-link a, .central-link-light a, #filters .cat
   background-color: #000;
 }
 
+ #product #product-description .product-description-line .cart button:disabled,
+ #product #product-description .product-description-line .cart button:hover:disabled 
+  {
+  background-color: #F3F3F3;
+  cursor: not-allowed;
+  color: #000;
+}
+
 /* ====================== */
 /* ======= IMAGES ======= */
 /* ====================== */
