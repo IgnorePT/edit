@@ -55,8 +55,6 @@ makeAllCaps(arrStrings)
     .then(res => console.log(res))
     .catch(err => console.error(err))
 
-
-
 // Test your knowledge
 // https://www.codingame.com/playgrounds/347/javascript-promises-mastering-the-asynchronous/its-quiz-time
 
