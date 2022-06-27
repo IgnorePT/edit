@@ -1,3 +1,5 @@
+"use strict";
+
 const queryParameters = new URLSearchParams(window.location.search);
 
 const getApiUrl = (id) => {
@@ -38,6 +40,7 @@ const setProductSizes = (sizes) => {
     const availableSizes = Object.keys(sizes);
 
     sizeButtons.forEach((sizeButton) => {
+        
         if (availableSizes.includes(sizeButton.innerText)) {
             sizeButton.disabled = false;
          
@@ -81,12 +84,13 @@ const activateQuantityButtons = () => {
     })
 }
 
-
 window.addEventListener("DOMContentLoaded", async () => {
 
     const productId = queryParameters.get("id");
     const response = await fetch(getApiUrl(productId));
     const product = await response.json();
+
+    console.log(product);
 
     setProductTextData(product);
     setFeaturedImage(product.image);
