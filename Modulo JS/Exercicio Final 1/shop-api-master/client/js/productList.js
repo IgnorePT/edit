@@ -1,45 +1,51 @@
 "use strict";
-
-const availableParameters = {
-    numberProducts: "nProducts",
-    sortBy: "sortBy",
-};
-
 const queryParameters = new URLSearchParams(window.location.search);
-
-const htmlToElement = html => {
-    const placeholder = document.createElement('div');
-    placeholder.innerHTML = html;
-    return placeholder.children.length ? placeholder.firstElementChild : undefined;
-};
 
 const getApiUrl = () => {
     const resource = "api/getProductsList";
     const parameters = queryParameters.toString();
+    window.history.pushState({}, '', `?${parameters}`);
+
     return parameters ? resource + `?${parameters}` : resource;
 };
 
-const setParameters = ({ numberProducts, sortBy }) => {
-    
-    queryParameters.set(availableParameters.numberProducts, (numberProducts) ? numberProducts : 10);
+const setParameters = ({parameter, value}) => {
+    queryParameters.set(AVAILABLE_PARAMETERS.numberProducts, (parameter === AVAILABLE_PARAMETERS.numberProducts) ? value : 10);
 
-    if (sortBy) {
-        queryParameters.set(availableParameters.sortBy, sortBy.toLowerCase());
+    if (sortBy === AVAILABLE_PARAMETERS.sortBy) {
+        queryParameters.set(parameter, value);
+    } else {
+        queryParameters.append(parameter, value);
     }
 };
 
-const removeQueryParameters = (parameter) => {
+const removeQueryParameters = (parameter, value) => {
+
+    const paramToRemoveValues = queryParameters.getAll(parameter);
+
     queryParameters.delete(parameter);
+
+    if (paramToRemoveValues.length >= 1) {
+
+        paramToRemoveValues.filter(param => param != value).forEach(value => setParameters({
+            parameter,
+            value
+        }))
+    }
 };
 
-const getProductTemplate = ({ id, image, name, price, partnership }) => {
+const getProductTemplate = ({ id, image, name, price, category }) => {
     return `
     <a class="product-card col-6 col-d-4" href="product.html?id=${id}" title="View Product">
         <div class="product-card-image">
-            <img class="imgfit" src="${image}" srcs />
+            <img class="imgfit" src="${image}"  srcset="
+            ${image} 3x,
+            ${image.replace("products", IMAGE_RESOURCES.x2)} 2x,
+            ${image.replace("products", IMAGE_RESOURCES.x2)} 1x
+           " />
         </div>
         <p class="margintophalf marginbottomnone">${name}</p>
-        <p class="gray marginnone">${partnership}</p>
+        <p class="gray marginnone">${category.map(id => CATEGORIES[id]).join(", ")}</p>
         <p class="secondary marginnone">$${price}</p>
     </a>
     `;
@@ -53,16 +59,12 @@ const getLoadMoreButton = () => {
     `;
 }
 
-const handleProductResponse = (products, filterFn) => {
+const handleProductResponse = (products) => {
 
     const mainListELement = document.getElementById("mainproductlist");
 
     mainListELement.innerHTML = "";
     const fragment = document.createDocumentFragment();
-
-    if(filterFn){
-        filterFn(products)  
-    }
 
     products.forEach(product => {
         const node = htmlToElement(getProductTemplate(product))
@@ -80,12 +82,12 @@ const fetchProductData = async (params = null) => {
         const response = await fetch(getApiUrl());
         const productsResponse = await response.json();
 
-        if(productsResponse.status !== 200){
+        if (productsResponse.status !== 200) {
             return console.error(
-                (productsResponse.message) 
+                (productsResponse.message)
                     ? productsResponse.message
                     : "Unable to Fetch Products"
-                )
+            )
         }
 
         handleProductResponse(productsResponse.data.products);
@@ -96,30 +98,79 @@ const fetchProductData = async (params = null) => {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-   fetchProductData();
+    fetchProductData();
 });
 
-const filterBySize = (products, size) => {
- return products.filter(product => Object.keys(product.sizes).includes(size))
-}
-
-
 window.addEventListener("DOMContentLoaded", () => {
+
+    //Size Buttons
     const sizebtns = document.querySelectorAll(".sizebtns > button");
 
+    const sizesActive = queryParameters.getAll('size');
+
     sizebtns.forEach(button => {
+
+        if (sizesActive && sizesActive.includes(button.innerText)) {
+            button.classList.add('active');
+        };
+
         button.addEventListener("click", (e) => {
-            button.classList.toogle('active');
+            const value = e.target.innerText;
+            
+            filtersClickAction({
+                element: button,
+                parameter: AVAILABLE_PARAMETERS.size,
+                value,
+                activeClass: 'active'
+            });
         })
     })
 
+    //Order Selector
     const orderBySelector = document.getElementById('sortBy');
-
     orderBySelector.addEventListener("change", (e) => {
-        setParameters({sortBy: e.target.value});
+        setParameters({
+            parameter: AVAILABLE_PARAMETERS.sortBy,
+            value:  e.target.value.toLowerCase() 
+        })
         fetchProductData();
     })
+
+    //Categories List
+    const categoriesLink = document.querySelectorAll("#categories > li > a");
+    const categoriesActive = queryParameters.getAll('categories');
+    categoriesLink.forEach(categorie => {
+
+        const value = categorie.title.toLowerCase()
+        if (categoriesActive && categoriesActive.includes(value)) {
+            categorie.classList.add('primary');
+        }
+        categorie.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            filtersClickAction({
+                element: categorie,
+                parameter: AVAILABLE_PARAMETERS.categories,
+                value,
+                activeClass: 'primary'
+            })
+        })
+    })
 })
+
+const filtersClickAction = ({element, parameter, value, activeClass}) => {
+    
+    if (element.classList.contains(activeClass)) {
+        removeQueryParameters(parameter, value);
+    } else {
+        setParameters({
+            parameter,
+            value
+        })
+    }
+    element.classList.toggle(activeClass);
+    fetchProductData();
+}
 
 
 

@@ -1,27 +1,82 @@
 const { Products, setUsers, Users } = require('./db');
 
-module.exports = {
-    getProducts: function (nProducts = 10, sortBy='price') {
-        let sortedProducts =  [...Products];
-        if(!sortedProducts[0][sortBy]) {
-            return {
-                status: 400,
-                message: `sortBy provided (${sortBy}) is invalid. Try one of the product properties instead`
-            }
+const CATEGORIES = {
+    1: "snickers",
+    2: "coats",
+    3: "pants",
+    4: "jackets"
+}
+
+
+const SortBy = {
+    price: (a,b) => a.price - b.price,
+    name: (a,b) => {
+        const aProp = a["name"].toUpperCase();
+        const bProp = b["name"].toUpperCase();
+        if (aProp < bProp) {
+            return -1;
+          }
+        return aProp > bProp ? 1 : 0;
         }
+}
+
+const getKeyByValue = (object, value) => {
+    return Object.keys(object).find(key => object[key] === value);
+  }
+
+const filterByCategories = (products, categories) => {
+
+    if(typeof categories === "string"){
+         return products.filter(product => product.category.map(category => CATEGORIES[category]).includes(categories));
+    }
+    return products.filter(product => product.category.map(category => CATEGORIES[category]).some(el => categories.includes(el)));
+}
+
+const filterBySize = (products, size) => {
+
+    if(typeof size === "string"){
+        return products.filter(product => Object.keys(product.sizes).includes(size));
+    }
+
+    return products.filter(product => Object.keys(product.sizes).some(el=> size.includes(el)));
+
+}
+
+const setResponse = ({code = 200, message = "", data = null}) => {
+    if(message){
+        return { status: code, message }
+    }
+
+    return { status: code, data}
+}
+
+
+module.exports = {
+    getProducts: function ({nProducts = 10, sortBy = 'price', categories = null, size = null}) {
+    
+        let sortedProducts =  [...Products];
+
+        if(!sortedProducts[0][sortBy]) {
+            return setResponse({
+                code: 400,
+                message: `sortBy provided (${sortBy}) is invalid. Try one of the product properties instead`
+            })
+        }
+
+        if(categories){
+            sortedProducts = filterByCategories(sortedProducts, categories);
+        }
+
+        if(size){
+            sortedProducts = filterBySize(sortedProducts, size);
+        }
+
         sortBy === 'price' ? 
-        sortedProducts.sort((a,b) => a.price - b.price) : 
-        sortedProducts.sort((a,b) => {
-                const aProp = a[sortBy].toUpperCase();
-                const bProp = b[sortBy].toUpperCase();
-                if (aProp < bProp) {
-                    return -1;
-                  }
-                return aProp > bProp ? 1 : 0;
-                });
+        sortedProducts.sort(SortBy.price) : 
+        sortedProducts.sort(SortBy.name);
         return {
             status: 200,
-            data: sortedProducts.slice(0, nProducts)
+            data: {products: sortedProducts.slice(0, nProducts), totalProducts: sortedProducts.length}
         }
     },
     getProduct: function (productId) {

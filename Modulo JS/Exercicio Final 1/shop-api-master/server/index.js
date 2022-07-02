@@ -16,19 +16,18 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/api/getProductsList", (req, res) => {
   const params = Object.keys(req.query);
+  
   let result = null;
   if (!params.length) {
-    result = getProducts();
+    result = getProducts({});
   } else {
-    result =
-      params.length === 1
-        ? getProducts(req.query[params[0]])
-        : getProducts(req.query[params[0]], req.query[params[1]]);
+    result = getProducts(req.query);
   }
   return res.status(result.status || 200).send(result);
 });
 app.get("/api/getProduct", (req, res) => {
   const params = Object.keys(req.query);
+
   if (!params.length) {
     return res.status(400).send("Please provide an id");
   }

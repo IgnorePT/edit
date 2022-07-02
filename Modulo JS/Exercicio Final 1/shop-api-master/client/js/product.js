@@ -90,8 +90,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch(getApiUrl(productId));
     const product = await response.json();
 
-    console.log(product);
-
     setProductTextData(product);
     setFeaturedImage(product.image);
     setProductScore(product.score);
