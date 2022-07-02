@@ -12,7 +12,7 @@ const getApiUrl = () => {
 const setParameters = ({parameter, value}) => {
     queryParameters.set(AVAILABLE_PARAMETERS.numberProducts, (parameter === AVAILABLE_PARAMETERS.numberProducts) ? value : 10);
 
-    if (sortBy === AVAILABLE_PARAMETERS.sortBy) {
+    if (parameter === AVAILABLE_PARAMETERS.sortBy) {
         queryParameters.set(parameter, value);
     } else {
         queryParameters.append(parameter, value);
@@ -106,7 +106,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //Size Buttons
     const sizebtns = document.querySelectorAll(".sizebtns > button");
 
-    const sizesActive = queryParameters.getAll('size');
+    const sizesActive = queryParameters.getAll(AVAILABLE_PARAMETERS.size);
 
     sizebtns.forEach(button => {
 
@@ -128,6 +128,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Order Selector
     const orderBySelector = document.getElementById('sortBy');
+    if(queryParameters.get(AVAILABLE_PARAMETERS.sortBy)){
+        let sortByString = queryParameters.get(AVAILABLE_PARAMETERS.sortBy)
+        orderBySelector.value =  sortByString.charAt(0).toUpperCase() + sortByString.slice(1);
+    }
+
     orderBySelector.addEventListener("change", (e) => {
         setParameters({
             parameter: AVAILABLE_PARAMETERS.sortBy,
@@ -138,7 +143,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Categories List
     const categoriesLink = document.querySelectorAll("#categories > li > a");
-    const categoriesActive = queryParameters.getAll('categories');
+    const categoriesActive = queryParameters.getAll(AVAILABLE_PARAMETERS.categories);
     categoriesLink.forEach(categorie => {
 
         const value = categorie.title.toLowerCase()
