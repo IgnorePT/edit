@@ -71,9 +71,9 @@ const array = [
 ];
 
 const indexOfObject = (arrayOfObjects) => {
-
-    return Object.assign({}, arrayOfObjects);
-
+    return arrayOfObjects.reduce((acc, currentValue) => {
+        acc[currentValue.id] = currentValue;
+    }, {})
 }
 
 const indexOfObjectOld = (arrayOfObjects) => {
@@ -137,13 +137,44 @@ console.log("swapElementsInArray: ", swapElementsInArray([1, 40, 3, 6, 10, 90, 3
 
 //Ex 10: Monotonous List
 
-const isMonotonousList = (array) => {
+//Complex Way
+const isBigger = (a,b) => {
+    return a > b;
+}
 
+
+const isLower = (a,b) => {
+    return a < b;
+}
+
+const isMonotonousList = (array) => {
+    const validateMonotonous = (array[0] > array[0 + 1]) ? isBigger : isLower;
+
+    let isMonotonous = true;
+
+    for(let i = 1; i < array.length - 1; i++){
+        if(!validateMonotonous(array[i], array[i + 1])){
+            isMonotonous = false;
+            break;
+        }
+    }
+
+    return isMonotonous;
 } 
 
 console.log("isMonotonousList: ", isMonotonousList([1, 40, 3, 6, 10, 90, 35]));
 console.log("isMonotonousList: ", isMonotonousList([1, 2, 3, 6, 10, 50]));
 console.log("isMonotonousList: ", isMonotonousList([100, 20, 3, -6, -10, -50]));
+
+//Ex 11: Voewls
+function countVowels(string){
+    return string.match(/[aeiou]/ig).length;
+}
+
+console.log("countVowels: ", countVowels("nelson"))
+console.log("countVowels: ", countVowels("absinto"))
+console.log("countVowels: ", countVowels("aaaeee"))
+
 
 
 
