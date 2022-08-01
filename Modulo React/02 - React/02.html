@@ -107,23 +107,19 @@
 
 
             //Ex 3
-            const listCreation =  (array, nIteration = 0, current) => {
+            const listCreation =  (array, nIteration = 0, current = null) => {
 
                 const propsForUl = (nIteration === 0) ? { class: 'first_ul' } : null;
 
                 const li = array.map(element => {
-                    const liElements = (nIteration === 0) 
-                        ? [element, listCreation(array,nIteration + 1, element)] 
+                    const liElements = (nIteration < array.length - 1 && current)
+                        ? [element, listCreation(array, nIteration + 1, element)] 
                         : `${current} ${element}`;
 
                     return React.createElement('li', null, liElements)
-
                 });
 
-                const ul = React.createElement('ul', propsForUl, li);
-
-                return ul;
-
+                return React.createElement('ul', propsForUl, li);
             }
 
             const listCountArray = ['One', 'Two'];

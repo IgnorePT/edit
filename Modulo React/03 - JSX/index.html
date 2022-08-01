@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>React App</title>
+        <style>
+            .blue {
+                color: blue;
+            }
+
+            .red {
+                color: red;
+            }
+
+            .yellow {
+                color: yellowgreen;
+            }
+
+            .green {
+                color: green;
+            }
+        </style>
+    </head>
+
+    <body>
+        ​
+        <h2>React skeleton</h2>
+        ​
+        <!-- We will put our React component inside this div. -->
+        <div id="container"></div>
+        <div id="container_2"></div>
+        <div id="container_3"></div>
+        <div id="container_4"></div>
+
+
+        ​
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+        ​
+        <script type="text/babel">
+
+            //Ex 2
+            const listArray = ['one', 'two', 'three', 'four', 'five'];
+
+            const element = (
+                <div>
+                    <ul>
+                        {listArray.map(item => <li>{item}</li>)}
+                    </ul>
+                </div>
+            )
+
+            ReactDOM.render(
+                element,
+                document.getElementById('container_2')
+            )
+
+            //Ex 3
+            const numberList = ['One', 'Two'];
+
+            const listCreation = (numberList, nIterations = 0, current = null) => {
+                const ulClass = (nIterations === 0) ? { class: 'first_ul' } : null;
+
+                const li = numberList.map(element => {
+                    const liElements = (nIterations < numberList.length - 1)
+                        ? [element, listCreation(numberList, nIterations + 1, element)]
+                        : `${current} ${element}`;
+
+                    return (
+                        <li>
+                            {liElements}
+                        </li>)
+                });
+
+                return <ul class={ulClass}>{li}</ul>;
+            }
+
+            const parent_div = (
+                <div id="parent_id" class="parent_div">
+                    {listCreation(numberList)}
+                </div>
+            )
+
+            ReactDOM.render(
+                parent_div,
+                document.getElementById('container_3')
+            );
+        </script>
+        ​
+    </body>
+
+</html>
