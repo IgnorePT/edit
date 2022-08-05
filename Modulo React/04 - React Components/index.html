@@ -29,6 +29,11 @@
         ​
         <!-- We will put our React component inside this div. -->
         <div id="container"></div>
+        <div id="container_2"></div>
+        <div id="container_3"></div>
+        <div id="container_4"></div>
+        <div id="container_5"></div>
+
         ​
         <!-- Load React. -->
         <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -37,8 +42,182 @@
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
         ​
         <script type="text/babel">
+            // Ex 7:
+
+            function DrawUl(props) {
+
+                const liItems = props.items.map(item => <li key={item.key}>{item.value}</li>);
+
+                const ul = (
+                    <ul className="items">
+                        {liItems}
+                    </ul>
+                )
+
+                return ul;
+            }
+
+            const elements = [{
+                key: 1,
+                value: "First item"
+            },
+            {
+                key: 2,
+                value: "Second item"
+            }];
+
+            const ex7Content = <DrawUl items={elements} />
+
+            ReactDOM.render(
+                ex7Content,
+                document.getElementById('container')
+            );
+
+
+            //Ex 8:
+            const items = {
+                '2': {
+                    class: 'number_two',
+                    number: 2
+                },
+                'number_three': {
+                    class: 'number_three',
+                    number: 3
+                },
+                '4': {
+                    class: 'number_four',
+                    number: 4
+                },
+                'number_one': {
+                    class: 'number_one',
+                    number: 1
+                }
+            }
+
+            // Presico das keys? Não
+            // Como vou buscar os valores e passo para array? MDN tem algo?
+            const valoresObjeto = Object.values(items);
+
+            //Mas so preciso do 3 e 4
+            // Como filtro os 3 e o 4 de um array
+
+            const arrayFiltrado = valoresObjeto.filter(valor => valor.number === 3 || valor.number === 4)
+
+            const ListComponent = ({ items, nIterations }) => {
+                let numberIterations = nIterations ? nIterations : 0;
+
+                const li = items.map((element, index) => {
+                    const liElements = (numberIterations < items.length - 1)
+                        ? {
+                            class: element.class,
+                            element: [element.number, <ListComponent items={items} nIterations={numberIterations + 1} />]
+                        }
+                        : {
+                            class: element.class,
+                            element: element.number
+                        };
+
+                    return (
+                        <li key={`${element.number}-${index}-${element.class}-a`} className={liElements.class}>
+                            {liElements.element}
+                        </li>)
+                });
+
+                return <ul>{li}</ul>;
+            }
+
+            const CustomListComponent = (props) => {
+
+                const filteredList = Object.values(props.items).filter(item => item.number === 3 || item.number === 4);
+
+                return (
+                    <div>
+                        <ListComponent items={filteredList} />
+                    </div>
+                )
+            }
+
+            const ex8Content = <CustomListComponent items={items} />
+
+            ReactDOM.render(
+                ex8Content,
+                document.getElementById('container_2')
+            );
+
+            //Ex 9:
+
+            const NumberedObjects = [
+                { number: 1, class: "to_remove" },
+                { number: 2, class: "" },
+            ]
+
+            const NumberedList = ({ list }) => {
+
+                const [numberList, setNumberList] = React.useState(list);
+
+                const onClickFn = () => setNumberList([...numberList.reverse()])
+
+                return (
+                    <ul>
+                        {numberList.map((li, index) => <li key={`${li.number}-${index}-s`} className={li.class}>{li.number}</li>)}
+                        <button onClick={onClickFn}>Click me</button>
+                    </ul>
+                )
+            }
+
+            const NumberedListElement = <NumberedList list={NumberedObjects} />
+
+
+            ReactDOM.render(
+                NumberedListElement,
+                document.getElementById('container_3')
+            );
+
+            // Ex 10 - 
+
+            const SecondNumberedObjects = [
+                { number: 1, id: "to_remove" },
+                { number: 2, id: "2" },
+            ];
+
+            const logFn = () => {
+                console.log("Log Me");
+            }
+
+            const removeElement = () => {
+                console.log("Remove Me");
+            }
+
+            const SecondNumberedList = ({ list, onClickFn }) => {
+
+                const [numberList, setNumberList] = React.useState(list);
+
+                return (
+                    <ul>
+                        {numberList.map((li, index) => <li key={`${li.number}-${index}-s`} id={li.id}>{li.number}</li>)}
+                        <button onClick={onClickFn}>Click me</button>
+                    </ul>
+                )
+            }
+            
+            const SecondNumberedElement_log = <SecondNumberedList list={SecondNumberedObjects} onClickFn={logFn} />
+            const SecondNumberedElement_remove = <SecondNumberedList list={SecondNumberedObjects} onClickFn={removeElement}/>
+
+            ReactDOM.render(
+                SecondNumberedElement_log,
+                document.getElementById('container_4')
+            );
+
+            ReactDOM.render(
+                SecondNumberedElement_remove,
+                document.getElementById('container_5')
+            );
+
+
 
         </script>
+
+
         ​
     </body>
 
