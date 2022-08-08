@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>React App</title>
+		<style>
+			.container {
+				margin-bottom: 50px;
+			}
+
+			.blue {
+				color: blue;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.yellow {
+				color: yellowgreen;
+			}
+
+			.green {
+				color: green;
+			}
+		</style>
+
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		​
+		<h2>React skeleton</h2>
+		​
+		<!-- We will put our React component inside this div. -->
+		<div class="container" id="container"></div>
+		<div class="container" id="container_2"></div>
+		<div class="container" id="container_3"></div>
+		<div class="container" id="container_4"></div>
+
+		​
+		<!-- Load React. -->
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<script
+			src="https://unpkg.com/react@16/umd/react.development.js"
+			crossorigin
+		></script>
+		<script
+			src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+			crossorigin
+		></script>
+		<script
+			src="https://unpkg.com/babel-standalone@6/babel.min.js"
+			crossorigin
+		></script>
+
+		​
+		<script type="text/babel">
+			//Ex 12:
+			const formInputs = [
+				{
+					type: "text",
+					name: "Nome",
+					placeholder: "Inserir nome...",
+				},
+				{
+					type: "text",
+					name: "Apelido",
+					placeholder: "Inserir apelido...",
+				},
+				{
+					type: "email",
+					name: "E-mail",
+					placeholder: "",
+				},
+				{
+					type: "text",
+					name: "message",
+					placeholder: "Escreva aqui a sua mensagem...",
+				},
+			];
+
+			const FormComponent = ({ inputs }) => {
+				const [formState, setFormState] = React.useState({});
+
+				const handleChange = (e) => {
+					setFormState({
+						...formState,
+						[event.target.name]: event.target.value,
+					});
+				};
+
+				const handleSubmit = (e) => {
+					e.preventDefault();
+					console.log(formState);
+				};
+
+				return (
+					<form id="customForm">
+						{inputs.map((input) => (
+							<div key={input.name} className="form-group">
+								<input
+									onChange={handleChange}
+									type={input.type}
+									name={input.name}
+									placeholder={input.placeholder}
+								/>
+							</div>
+						))}
+						<input onClick={handleSubmit} type="submit" value="Enviar" />
+					</form>
+				);
+			};
+
+			const form = <FormComponent inputs={formInputs} />;
+
+			ReactDOM.render(form, document.getElementById("container"));
+
+			// Ex 13:
+
+			const H1Component = () => {
+				const [h1Text, setH1Text] = React.useState("Hello React");
+
+				const promise = () => {
+					return new Promise(function (resolve, reject) {
+						setTimeout(() => {
+							return resolve("React");
+						}, 1000);
+					});
+				};
+
+				React.useEffect(() => {
+					promise().then((res) => setH1Text(res));
+				});
+
+				return <h1>{h1Text}</h1>;
+			};
+
+			const h1Element = <H1Component />;
+
+			ReactDOM.render(h1Element, document.getElementById("container_2"));
+
+			// Ex 14:
+
+			const UlComponent = ({ list, nIteration = 0 }) => {
+				const props =
+					nIteration === 0 ? { nIteration: nIteration, list: list } : {};
+
+				return (
+					<ul>
+						{list &&
+							list.map((element) => <LiComponent li={element} {...props} />)}
+					</ul>
+				);
+			};
+
+			const LiComponent = ({ li, nIteration, list }) => {
+				return (
+					<li className={li.class}>
+						{li.number}
+						{nIteration === 0 ? (
+							<UlComponent list={list} nIteration={nIteration + 1} />
+						) : (
+							""
+						)}
+					</li>
+				);
+			};
+
+			const ListComponent = () => {
+				const [listData, setListData] = React.useState([]);
+
+				const promise = () => {
+					return new Promise(function (resolve, reject) {
+						setTimeout(() => {
+							return resolve({
+								2: {
+									class: "number_two",
+									number: 2,
+								},
+								number_three: {
+									class: "number_three",
+									number: 3,
+								},
+								4: {
+									class: "number_four",
+									number: 4,
+								},
+								number_one: {
+									class: "number_one",
+									number: 1,
+								},
+							});
+						}, 1000);
+					});
+				};
+
+				React.useEffect(() => {
+					promise().then((list) => {
+						const values = Object.values(list);
+
+						const filterValues = values.filter(
+							(element) => element.number === 1 || element.number === 2
+						);
+
+						const sortedValues = filterValues.sort(
+							(a, b) => a.number - b.number
+						);
+
+						setListData(sortedValues);
+					});
+				});
+
+				return <div>{listData && <UlComponent list={listData} />}</div>;
+			};
+
+			const listElement = <ListComponent />;
+
+			ReactDOM.render(listElement, document.getElementById("container_3"));
+
+			// Ex 15 Same as before but with Loading component:
+
+			const UlComponentWLoader = ({ list, nIteration = 0 }) => {
+				const props =
+					nIteration === 0 ? { nIteration: nIteration, list: list } : {};
+
+				return (
+					<ul>
+						{list &&
+							list.map((element) => (
+								<LiComponentWLoader li={element} {...props} />
+							))}
+					</ul>
+				);
+			};
+
+			const LiComponentWLoader = ({ li, nIteration, list }) => {
+				return (
+					<li className={li.class}>
+						{li.number}
+						{nIteration === 0 ? (
+							<UlComponentWLoader list={list} nIteration={nIteration + 1} />
+						) : (
+							""
+						)}
+					</li>
+				);
+			};
+
+			const Loading = () => {
+				return <h1>Loading ...</h1>;
+			};
+
+			const ListComponentWLoader = () => {
+				const [listData, setListData] = React.useState([]);
+
+				const promise = () => {
+					return new Promise(function (resolve, reject) {
+						setTimeout(() => {
+							return resolve({
+								2: {
+									class: "number_two",
+									number: 2,
+								},
+								number_three: {
+									class: "number_three",
+									number: 3,
+								},
+								4: {
+									class: "number_four",
+									number: 4,
+								},
+								number_one: {
+									class: "number_one",
+									number: 1,
+								},
+							});
+						}, 3000);
+					});
+				};
+
+				React.useEffect(() => {
+					promise().then((list) => {
+						const values = Object.values(list);
+
+						const filterValues = values.filter(
+							(element) => element.number === 1 || element.number === 2
+						);
+
+						const sortedValues = filterValues.sort(
+							(a, b) => a.number - b.number
+						);
+
+						setListData(sortedValues);
+					});
+				});
+
+				return (
+					<div>
+						{listData.length > 0 ? (
+							<UlComponentWLoader list={listData} />
+						) : (
+							<Loading />
+						)}
+					</div>
+				);
+			};
+
+			const listElementWLoader = <ListComponentWLoader />;
+
+			ReactDOM.render(
+				listElementWLoader,
+				document.getElementById("container_4")
+			);
+		</script>
+		​
+	</body>
+</html>
