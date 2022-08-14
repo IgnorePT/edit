@@ -22,5 +22,8 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "path": {
+    "@stitchesConfig*": ["stitches.config"]
+  }
 }
