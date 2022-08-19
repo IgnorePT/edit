@@ -71,7 +71,7 @@ export const globalStyles = globalCss({
   "h5,p,span,a": {
     fontFamily: "$barlowCondensed",
     fontWeight: "400",
-    fontSize: "1.8rem",
+    fontSize: "1.7rem",
     lineHeight: "3.2rem",
     color: "$lavenderBlue",
   },

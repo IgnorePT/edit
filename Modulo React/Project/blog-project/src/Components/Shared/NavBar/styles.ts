@@ -2,18 +2,15 @@ import { styled } from "../../../stitches.config"
 import { Link } from "react-router-dom";
 
 
-export const Nav = styled('nav',{
+export const Nav = styled('nav', {
     display: "flex",
     gap: "3.5rem",
     height: "100%",
-    padding: "1.2rem 0",
-    variants:{
+    textTransform: "uppercase",
+    variants: {
         mainNavigation: {
             true: {
-                padding: "0 16.5rem 0 12.3rem",
                 gap: "4.8rem",
-                background: "rgba(255, 255, 255, 0.04)",
-                backdropFilter: "blur(81.5485px)",
                 counterSet: "my-counter",
                 counterReset: "my-counter -1",
             }
@@ -22,21 +19,19 @@ export const Nav = styled('nav',{
 })
 
 const sharedLinkCss = {
+    fontSize: "1.6rem",
     display: "block",
     textDecoration: "none",
+    textTransform: "uppercase",
     padding: "3.9rem 0 3.6rem",
     height: "100%",
+    color: "$lavenderBlue",
+    letterSpacing: "0.27rem",
     borderBottom: "0.3rem solid rgba(255,255,255, 0)",
-    counterIncrement: "my-counter 1",
-    "&:hover" : {
+    "&:hover": {
         borderColor: "rgba(255,255,255, 0.5)"
     },
-    "&::before" : {
-        content: "counter(my-counter, decimal-leading-zero)",
-        marginRight: "1rem",
-        fontWeight: "700"
-    },
-    variants:{
+    variants: {
         active: {
             true: {
                 borderColor: "rgba(255,255,255, 1)"
@@ -45,14 +40,23 @@ const sharedLinkCss = {
     }
 }
 
-export const NavLinkButton = styled("button", {...{
-    background: "none",
-    border: "none",
-    color: "$lavenderBlue",
-    letterSpacing: "0.027rem",
-    cursor: "pointer"
-},
-...sharedLinkCss
+export const NavItemButton = styled("button", {
+    ...{
+        background: "none",
+        border: "none",
+        cursor: "pointer"
+    },
+    ...sharedLinkCss,
 })
 
-export const NavLink = styled(Link, sharedLinkCss)
+export const NavItemLink = styled(Link, {
+    ...sharedLinkCss, ...{
+        color: "$white",
+        counterIncrement: "my-counter 1",
+        "&::before": {
+            content: "counter(my-counter, decimal-leading-zero)",
+            marginRight: "1rem",
+            fontWeight: "700"
+        },
+    }
+})

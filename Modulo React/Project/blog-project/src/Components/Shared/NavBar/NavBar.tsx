@@ -1,5 +1,5 @@
 
-import { Nav, NavLink, NavLinkButton } from "./styles";
+import { Nav, NavItemLink, NavItemButton } from "./styles";
 
 interface INavBar {
     type: string,
@@ -21,8 +21,8 @@ const NavBar = ({ menu, mainNavigation, onClick}: NavBarType) => {
                 menu && menu.map((navElement: INavBar) => {
                     
                     return (
-                        onClick ? <NavLinkButton onClick={() => onClick(navElement.text)} > {navElement.text} </NavLinkButton>
-                        : <NavLink to={navElement.to} > {navElement.text} </NavLink>
+                        onClick ? <NavItemButton onClick={() => onClick(navElement.text)} > {navElement.text} </NavItemButton>
+                        : <NavItemLink to={navElement.to} > {navElement.text} </NavItemLink>
                     )
                 })
             }
