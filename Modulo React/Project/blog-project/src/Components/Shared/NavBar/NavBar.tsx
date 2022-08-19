@@ -1,4 +1,4 @@
-import { IDestination } from "../../../Contexts/DestinationsContext";
+
 import { Nav, NavLink, NavLinkButton } from "./styles";
 
 interface INavBar {
@@ -10,7 +10,7 @@ interface INavBar {
 type NavBarType = {
     menu: INavBar[],
     mainNavigation?: boolean,
-    onClick?: (value: string) => IDestination;
+    onClick?: (value: any) => any;
 }
 
 const NavBar = ({ menu, mainNavigation, onClick}: NavBarType) => {
