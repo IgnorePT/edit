@@ -21,7 +21,7 @@ export const Nav = styled('nav',{
     }
 })
 
-export const NavLink = styled(Link, {
+const sharedLinkCss = {
     display: "block",
     textDecoration: "none",
     padding: "3.9rem 0 3.6rem",
@@ -43,4 +43,16 @@ export const NavLink = styled(Link, {
             }
         }
     }
+}
+
+export const NavLinkButton = styled("button", {...{
+    background: "none",
+    border: "none",
+    color: "$lavenderBlue",
+    letterSpacing: "0.027rem",
+    cursor: "pointer"
+},
+...sharedLinkCss
 })
+
+export const NavLink = styled(Link, sharedLinkCss)

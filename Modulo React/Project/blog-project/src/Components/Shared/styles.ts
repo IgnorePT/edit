@@ -12,3 +12,18 @@ export const Container = styled("div", {
         }
     }
 })
+
+
+export const SubHeading = styled("h4", {
+    textTransform: "uppercase",
+    fontSize: "2.8rem",
+    lineHeight: "3.2rem",
+    letterSpacing: "auto",
+});
+
+export const SubHeading2 = styled("h5", {
+    textTransform: "uppercase",
+    fontSize: "1.8rem",
+    lineHeight: "3.2rem",
+    letterSpacing: "auto",
+});

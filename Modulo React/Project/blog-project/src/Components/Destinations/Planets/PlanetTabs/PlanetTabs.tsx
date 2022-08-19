@@ -1,3 +1,4 @@
+import { IDestination } from "../../../../Schemas/Destinations";
 import NavBar from "../../../Shared/NavBar/NavBar";
 
 
@@ -18,13 +19,17 @@ const navMenu = [{
 {
     type: 'link',
     to: '/techonology',
-    text: 'Titans'
+    text: 'Titan'
 }
 ];
 
+type PlanetTabsTypes = {
+    onClick: (value: string) => IDestination;
+}
 
-const PlanetTabs = () => {
-    return <NavBar menu={navMenu} />
+
+const PlanetTabs = ({onClick} : PlanetTabsTypes) => {
+    return <NavBar onClick={onClick} menu={navMenu} />
 }
 
 export default PlanetTabs;

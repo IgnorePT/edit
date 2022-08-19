@@ -24,6 +24,3 @@ export const DestinationTitle = styled('h5', {
     }
 })
 
-export const PlanetData = styled('div', {
-    maxWidth: "44.5rem"
-})

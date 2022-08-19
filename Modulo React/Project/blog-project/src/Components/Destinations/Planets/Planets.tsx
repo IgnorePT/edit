@@ -1,38 +1,35 @@
-import { useState } from "react";
-import Moon from "../../../Assets/imgs/destination/image-moon.png"
-import { PlanetData } from "../styles";
+import { useContext } from "react";
+import { DestinationContext } from "../../../Contexts/DestinationsContext";
+import PlanetData from "./PlanetData/PlanetData";
 import PlanetTabs from "./PlanetTabs/PlanetTabs";
-import { Planet } from "./styles";
+import { Planet, PlanetDescription, PlanetDataGroup, PlanetDataWrapper } from "./styles";
 
 const Planets = () => {
 
-    const [currentPlanet, setCurrentPlanet] = useState({});
+    const {seletedDestionation, selectDestination} = useContext(DestinationContext);
+    console.log(seletedDestionation);
     
     return (
         <Planet>
             <div className="planet-image">
-                <img src={Moon} alt="Moon" />
+            <picture>
+                <source srcSet={`${seletedDestionation.images.webp}`} type="image/webp" />
+                <img src={`${seletedDestionation.images.png}`} alt={seletedDestionation.name} />
+            </picture>
             </div>
-            <PlanetData>
-                <PlanetTabs />
-                <div className="generic-content">
-                    <h1>Moon</h1>
-                    <p>See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
-                </div>
+            <PlanetDataWrapper>
+                <PlanetTabs onClick={selectDestination} />
+                <PlanetDescription>
+                    <h2>{seletedDestionation.name}</h2>
+                    <p>{seletedDestionation.description}</p>
+                </PlanetDescription>
 
-                <div className="technical-content">
-                    <div className="content-group">
-                        <h5 className="sub_heading_2">AVG. DISTANCE</h5>
-                        <h4 className="sub_heading">384,400 km</h4>
-                    </div>
+                <PlanetDataGroup>
+                    <PlanetData title="AVG. DISTANCE" value={seletedDestionation.distance} />
+                    <PlanetData title="Est. travel time" value={seletedDestionation.travel} />
+                </PlanetDataGroup>
 
-                    <div className="content-group">
-                        <h5 className="sub_heading_2">Est. travel time</h5>
-                        <h4 className="sub_heading">3 days</h4>
-                    </div>
-                </div>
-                
-            </PlanetData>
+            </PlanetDataWrapper>
         </Planet>
     )
 }

@@ -1,24 +1,30 @@
-import { Nav, NavLink } from "./styles";
+import { IDestination } from "../../../Contexts/DestinationsContext";
+import { Nav, NavLink, NavLinkButton } from "./styles";
 
-interface NavBar {
+interface INavBar {
     type: string,
     to: string,
     text: string
 }
 
 type NavBarType = {
-    menu: NavBar[],
-    mainNavigation?: boolean
+    menu: INavBar[],
+    mainNavigation?: boolean,
+    onClick?: (value: string) => IDestination;
 }
 
-const NavBar = ({ menu, mainNavigation}: NavBarType) => {
+const NavBar = ({ menu, mainNavigation, onClick}: NavBarType) => {
+
     return (
         <Nav mainNavigation={mainNavigation}>
             {
-                menu && menu.map((navElement: NavBar) =>
-                    <NavLink to={navElement.to}>
-                        {navElement.text}
-                    </NavLink>)
+                menu && menu.map((navElement: INavBar) => {
+                    
+                    return (
+                        onClick ? <NavLinkButton onClick={() => onClick(navElement.text)} > {navElement.text} </NavLinkButton>
+                        : <NavLink to={navElement.to} > {navElement.text} </NavLink>
+                    )
+                })
             }
 
         </Nav>
