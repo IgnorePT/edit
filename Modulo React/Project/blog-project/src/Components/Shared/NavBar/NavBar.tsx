@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { Nav, NavItemLink, NavItemButton } from "./styles";
 
 interface INavBar {
@@ -14,15 +15,16 @@ type NavBarType = {
 }
 
 const NavBar = ({ menu, mainNavigation, onClick}: NavBarType) => {
+    const [selected, setSelected] = useState(0);
 
     return (
         <Nav mainNavigation={mainNavigation}>
             {
-                menu && menu.map((navElement: INavBar) => {
+                menu && menu.map((navElement: INavBar, index: number) => {
                     
                     return (
-                        onClick ? <NavItemButton onClick={() => onClick(navElement.text)} > {navElement.text} </NavItemButton>
-                        : <NavItemLink to={navElement.to} > {navElement.text} </NavItemLink>
+                        onClick ? <NavItemButton active={index === selected} onClick={() => {onClick(navElement.text); setSelected(index)}} > {navElement.text} </NavItemButton>
+                        : <NavItemLink active={index === selected} onClick={() => setSelected(index)} to={navElement.to} > {navElement.text} </NavItemLink>
                     )
                 })
             }

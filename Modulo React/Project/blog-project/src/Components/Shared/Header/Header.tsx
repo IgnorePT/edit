@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../../Assets/imgs/shared/logo.svg";
 import NavBar from "../NavBar/NavBar";
 
-import { MainHeader, NavContainer } from "./styles";
+import {LogoContainer, MainHeader, NavContainer } from "./styles";
 
 const navMenu = [{
     type: 'link',
@@ -28,9 +28,12 @@ const navMenu = [{
 const Header = () => {
     return (
         <MainHeader >
-            <Link to="/">
-                <img src={Logo} alt="Logotipo Space Travel" />
-            </Link>
+            <LogoContainer>
+                <Link to="/">
+                    <img src={Logo} alt="Logotipo Space Travel" />
+                </Link>
+            </LogoContainer>
+
             <NavContainer>
                 <NavBar menu={navMenu} mainNavigation={true} />
             </NavContainer>
