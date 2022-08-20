@@ -2,28 +2,13 @@ import { styled } from "../../../stitches.config"
 import { Link } from "react-router-dom";
 
 
-export const Nav = styled('nav', {
-    display: "flex",
-    gap: "3.5rem",
-    height: "100%",
-    textTransform: "uppercase",
-    variants: {
-        mainNavigation: {
-            true: {
-                gap: "4.8rem",
-                counterSet: "my-counter",
-                counterReset: "my-counter -1",
-            }
-        }
-    }
-})
 
 const sharedLinkCss = {
     fontSize: "1.6rem",
     display: "block",
     textDecoration: "none",
     textTransform: "uppercase",
-    padding: "3.9rem 0 3.6rem",
+    padding: "1.2rem 0 1.2rem",
     height: "100%",
     color: "$lavenderBlue",
     letterSpacing: "0.27rem",
@@ -58,5 +43,24 @@ export const NavItemLink = styled(Link, {
             marginRight: "1rem",
             fontWeight: "700"
         },
+    }
+})
+
+export const Nav = styled('nav', {
+    display: "flex",
+    gap: "3.5rem",
+    height: "100%",
+    textTransform: "uppercase",
+    variants: {
+        mainNavigation: {
+            true: {
+                gap: "4.8rem",
+                counterSet: "my-counter",
+                counterReset: "my-counter -1",
+                [`& ${NavItemLink}`]: {
+                    padding: "3.9rem 0 3.6rem",
+                }
+            }
+        }
     }
 })
